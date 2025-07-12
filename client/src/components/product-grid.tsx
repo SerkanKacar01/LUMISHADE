@@ -53,7 +53,7 @@ export default function ProductGrid({ onProductClick }: ProductGridProps) {
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6 lg:gap-8">
           {filteredProducts.map((product) => (
             <Card key={product.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
               <div className="aspect-[4/3] relative">
@@ -63,14 +63,14 @@ export default function ProductGrid({ onProductClick }: ProductGridProps) {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <CardContent className="p-4 sm:p-6">
-                <h3 className="font-semibold text-base sm:text-lg mb-2 leading-tight">{product.name}</h3>
-                <p className="text-gray-600 text-sm mb-3 sm:mb-4 line-clamp-2">{product.shortDescription}</p>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-2">
-                  <span className="text-xl sm:text-2xl font-bold text-primary">{formatPrice(product.price)}</span>
+              <CardContent className="p-2 md:p-4 lg:p-6">
+                <h3 className="font-semibold text-sm md:text-base lg:text-lg mb-1 md:mb-2 leading-tight line-clamp-2">{product.name}</h3>
+                <p className="text-gray-600 text-xs md:text-sm mb-2 md:mb-3 lg:mb-4 line-clamp-2">{product.shortDescription}</p>
+                <div className="flex flex-col gap-2 md:gap-3">
+                  <span className="text-base md:text-xl lg:text-2xl font-bold text-primary">{formatPrice(product.price)}</span>
                   <Button 
                     onClick={() => onProductClick?.(product.id)}
-                    className="bg-primary hover:bg-primary/90 text-white w-full sm:w-auto min-h-[44px] text-sm sm:text-base"
+                    className="bg-primary hover:bg-primary/90 text-white w-full text-xs md:text-sm lg:text-base py-2 md:py-3 min-h-[36px] md:min-h-[44px]"
                   >
                     View Details
                   </Button>

@@ -112,33 +112,33 @@ export default function RolgordijnenLichtdoorlatendPage() {
         </div>
 
         {/* Products Grid */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <section className="py-12 md:py-16">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
               {products.map((product) => (
                 <div key={product.id} className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
                   <div className="aspect-w-16 aspect-h-12">
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-48 object-cover"
+                      className="w-full h-32 md:h-48 object-cover"
                     />
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-gray-900 mb-2">
+                  <div className="p-2 md:p-4">
+                    <h3 className="font-semibold text-gray-900 mb-1 md:mb-2 text-sm md:text-base leading-tight line-clamp-2">
                       {product.name}
                     </h3>
-                    <div className="text-xl font-bold text-primary mb-4">
+                    <div className="text-base md:text-xl font-bold text-primary mb-2 md:mb-4">
                       €{product.price}
                     </div>
                     {product.id === "1" ? (
                       <Link to="/rolgordijnen/lichtdoorlatend/klassieke-rolgordijn-wit">
-                        <Button className="w-full">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
                           Bekijk product
                         </Button>
                       </Link>
                     ) : (
-                      <Button className="w-full">
+                      <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
                         Bekijk product
                       </Button>
                     )}
