@@ -15,12 +15,11 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-center lg:text-left order-2 lg:order-1">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-              Transform Your Windows with Premium{' '}
-              <span className="text-primary">Ready-Made Solutions</span>
+              Transformeer uw ramen met premium{' '}
+              <span className="text-primary">kant-en-klare oplossingen</span>
             </h2>
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-              Discover our extensive collection of sunshades, blinds, and window decorations. 
-              Professional quality, perfect fit, delivered to your door.
+              Ontdek onze uitgebreide collectie zonweringen, jaloezieën, raamdecoratie en veel meer. Professionele kwaliteit, perfect passend, thuisbezorgd.
             </p>
             <div className="flex flex-col gap-3 sm:gap-4 justify-center lg:justify-start">
               <Button 
@@ -28,7 +27,7 @@ export default function Hero() {
                 className="bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl flex items-center gap-2 justify-center min-h-[48px]"
               >
                 <ShoppingCart className="w-5 h-5" />
-                Shop Now
+                SHOP NU 
               </Button>
               <Button 
                 variant="outline"
@@ -36,7 +35,7 @@ export default function Hero() {
                 className="border-primary text-primary hover:bg-primary/10 hover:scale-105 transition-all duration-300 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold shadow-md hover:shadow-lg flex items-center gap-2 justify-center min-h-[48px]"
               >
                 <Eye className="w-5 h-5" />
-                View Catalogue
+                Zie producten lijn
               </Button>
             </div>
           </div>

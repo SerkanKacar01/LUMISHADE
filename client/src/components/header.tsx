@@ -25,7 +25,7 @@ export default function Header({ onCartClick }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14 sm:h-16">
           <div className="flex items-center">
-            <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">SunShade & Co.</h1>
+            <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">LUMISHADÉ</h1>
           </div>
           
           {/* Desktop Navigation */}
