@@ -101,6 +101,13 @@ export default function Footer() {
               &copy; 2025 LUMISHADÉ All rights reserved. | <a href="#" className="hover:text-white">Privacy beleid</a> | <a href="#" className="hover:text-white">Algemene voorwaarden</a>
             </p>
           </div>
+
+          {/* Payment Methods Row - Desktop */}
+          <div className="border-t border-gray-800 pt-3 pb-6 text-center">
+            <p className="text-sm text-gray-400 leading-relaxed">
+              Bancontact · iDEAL · PayPal · Klarna · Mastercard · VISA · American Express
+            </p>
+          </div>
         </div>
 
         {/* Mobile Layout - Visible only on mobile */}
@@ -202,7 +209,7 @@ export default function Footer() {
             <div className="flex justify-center space-x-6">
               <Facebook className="w-6 h-6 hover:text-primary cursor-pointer transition-colors" />
               <Instagram className="w-6 h-6 hover:text-primary cursor-pointer transition-colors" />
-
+              <Twitter className="w-6 h-6 hover:text-primary cursor-pointer transition-colors" />
             </div>
           </div>
 
@@ -210,6 +217,13 @@ export default function Footer() {
           <div className="border-t border-gray-800 pt-3 text-center">
             <p className="text-xs text-gray-400">
               &copy; 2025 LUMISHADÉ All rights reserved.
+            </p>
+          </div>
+
+          {/* Payment Methods Row - Mobile */}
+          <div className="border-t border-gray-800 pt-3 pb-3 text-center">
+            <p className="text-xs text-gray-400 leading-relaxed">
+              Bancontact · iDEAL · PayPal · Klarna · Mastercard · VISA · American Express
             </p>
           </div>
         </div>
