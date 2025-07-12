@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Plus, Minus } from 'lucide-react';
+import { Plus, Minus, Sun, Moon } from 'lucide-react';
 import { getProductById } from '@/data/products';
 import { useCart } from '@/hooks/use-cart';
 import { useToast } from '@/hooks/use-toast';
@@ -40,7 +41,26 @@ export default function ProductDetailModal({ isOpen, onClose, productId }: Produ
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto w-[95vw] sm:w-full">
         <DialogHeader>
-          <DialogTitle className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">{product.name}</DialogTitle>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4 sm:mb-6">
+            <DialogTitle className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">{product.name}</DialogTitle>
+            {product.fabricType && (
+              <Badge 
+                variant="outline" 
+                className={`flex items-center gap-1 ${
+                  product.fabricType === 'lichtdoorlatend' 
+                    ? 'text-amber-700 border-amber-300' 
+                    : 'text-slate-700 border-slate-300'
+                }`}
+              >
+                {product.fabricType === 'lichtdoorlatend' ? (
+                  <Sun className="h-3 w-3" />
+                ) : (
+                  <Moon className="h-3 w-3" />
+                )}
+                {product.fabricType === 'lichtdoorlatend' ? 'Lichtdoorlatend' : '100% Verduisterend'}
+              </Badge>
+            )}
+          </div>
         </DialogHeader>
 
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">

@@ -8,6 +8,7 @@ export interface Product {
   category: 'blinds' | 'sunshades' | 'curtains' | 'screens' | 'rolgordijnen' | 'duo-rolgordijnen';
   features: string[];
   sizes: string[];
+  fabricType?: 'lichtdoorlatend' | 'verduisterend';
 }
 
 export const products: Product[] = [
@@ -109,7 +110,8 @@ export const products: Product[] = [
     description: 'Onze klassieke rolgordijn biedt een tijdloze stijl met uitstekende lichtsturing. Perfect voor woonkamers, slaapkamers en kantoren.',
     category: 'rolgordijnen',
     features: ['Eenvoudige bediening', 'Duurzame materialen', 'Makkelijke installatie', 'Verschillende kleuren', 'Kindveilige ketting'],
-    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220']
+    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220'],
+    fabricType: 'lichtdoorlatend'
   },
   {
     id: 'blackout-rolgordijn',
@@ -120,7 +122,8 @@ export const products: Product[] = [
     description: 'Verduisterende rolgordijn die 100% van het licht blokkeert. Ideaal voor slaapkamers, kinderkamers en thuisbioscopen.',
     category: 'rolgordijnen',
     features: ['100% lichtdicht', 'Thermische isolatie', 'Geluiddemping', 'Kindveilige bediening', 'Verschillende maten'],
-    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220']
+    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220'],
+    fabricType: 'verduisterend'
   },
   {
     id: 'thermal-rolgordijn',
@@ -131,7 +134,8 @@ export const products: Product[] = [
     description: 'Thermische rolgordijn die helpt bij energiebesparing door warmte binnen te houden in de winter en buiten in de zomer.',
     category: 'rolgordijnen',
     features: ['Energiebesparend', 'Thermische isolatie', 'UV-bescherming', 'Verschillende kleuren', 'Gemakkelijke reiniging'],
-    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220']
+    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220'],
+    fabricType: 'lichtdoorlatend'
   },
   // Duo-rolgordijnen
   {
@@ -143,7 +147,8 @@ export const products: Product[] = [
     description: 'Duo rolgordijn met zebra-patroon dat flexibele lichtsturing biedt. Schuif de stroken langs elkaar voor meer of minder licht.',
     category: 'duo-rolgordijnen',
     features: ['Flexibele lichtsturing', 'Modern zebra-patroon', 'Privacy en licht combinatie', 'Verschillende kleuren', 'Eenvoudige bediening'],
-    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220']
+    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220'],
+    fabricType: 'lichtdoorlatend'
   },
   {
     id: 'day-night-duo-rolgordijn',
@@ -154,7 +159,8 @@ export const products: Product[] = [
     description: 'Innovatieve duo rolgordijn met dag en nacht functionaliteit. Perfect voor flexibele privacy en lichtcontrole.',
     category: 'duo-rolgordijnen',
     features: ['Dag en nacht functie', 'Optimale privacy', 'Flexibele lichtcontrole', 'Elegante uitstraling', 'Verschillende stijlen'],
-    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220']
+    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220'],
+    fabricType: 'verduisterend'
   },
   {
     id: 'premium-duo-rolgordijn',
@@ -165,7 +171,8 @@ export const products: Product[] = [
     description: 'Premium duo rolgordijn met luxe afwerking en superieure kwaliteit. Biedt perfecte balans tussen stijl en functionaliteit.',
     category: 'duo-rolgordijnen',
     features: ['Premium kwaliteit', 'Luxe afwerking', 'Superieure materialen', 'Lange levensduur', 'Professionele installatie'],
-    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220']
+    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220'],
+    fabricType: 'lichtdoorlatend'
   }
 ];
 
@@ -176,4 +183,8 @@ export const getProductById = (id: string): Product | undefined => {
 export const getProductsByCategory = (category: string): Product[] => {
   if (category === 'all') return products;
   return products.filter(product => product.category === category);
+};
+
+export const getProductsByCategoryAndFabricType = (category: string, fabricType: 'lichtdoorlatend' | 'verduisterend'): Product[] => {
+  return products.filter(product => product.category === category && product.fabricType === fabricType);
 };

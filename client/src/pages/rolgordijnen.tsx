@@ -5,9 +5,10 @@ import ProductGrid from "@/components/product-grid";
 import ProductDetailModal from "@/components/product-detail-modal";
 import CartModal from "@/components/cart-modal";
 import CheckoutModal from "@/components/checkout-modal";
-import { getProductsByCategory } from "@/data/products";
+import { getProductsByCategoryAndFabricType } from "@/data/products";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { ArrowLeft, Sun, Moon } from "lucide-react";
 import { Link } from "wouter";
 
 export default function RolgordijnenPage() {
@@ -16,7 +17,8 @@ export default function RolgordijnenPage() {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
 
-  const rolgordijnenProducts = getProductsByCategory('rolgordijnen');
+  const lichtdoorlatendeProducts = getProductsByCategoryAndFabricType('rolgordijnen', 'lichtdoorlatend');
+  const verduisterendeProducts = getProductsByCategoryAndFabricType('rolgordijnen', 'verduisterend');
 
   const handleProductClick = (productId: string) => {
     setSelectedProductId(productId);
@@ -61,12 +63,23 @@ export default function RolgordijnenPage() {
         {/* Products Section */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                Onze Rolgordijnen ({rolgordijnenProducts.length} producten)
-              </h2>
+            {/* Lichtdoorlatende Rolgordijnen Section */}
+            <div className="mb-16">
+              <div className="flex items-center gap-3 mb-6">
+                <Sun className="h-6 w-6 text-amber-600" />
+                <h2 className="text-2xl font-semibold text-gray-900">
+                  Lichtdoorlatende Rolgordijnen
+                </h2>
+                <Badge variant="outline" className="text-amber-700 border-amber-300">
+                  Lichtdoorlatend
+                </Badge>
+              </div>
+              <p className="text-gray-600 mb-8 max-w-3xl">
+                Perfecte balans tussen privacy en natuurlijk licht. Onze lichtdoorlatende rolgordijnen 
+                filteren het licht en bieden een aangename sfeer in elke ruimte.
+              </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {rolgordijnenProducts.map((product) => (
+                {lichtdoorlatendeProducts.map((product) => (
                   <div
                     key={product.id}
                     className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer"
@@ -80,18 +93,23 @@ export default function RolgordijnenPage() {
                       />
                     </div>
                     <div className="p-4">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                        {product.name}
-                      </h3>
+                      <div className="flex items-center gap-2 mb-2">
+                        <h3 className="text-lg font-semibold text-gray-900">
+                          {product.name}
+                        </h3>
+                        <Badge variant="secondary" className="text-xs bg-amber-100 text-amber-800">
+                          Lichtdoorlatend
+                        </Badge>
+                      </div>
                       <p className="text-gray-600 text-sm mb-3">
                         {product.shortDescription}
                       </p>
                       <div className="flex items-center justify-between">
                         <span className="text-2xl font-bold text-primary">
-                          €{product.price}
+                          €{product.price.toFixed(2)}
                         </span>
                         <div className="flex flex-wrap gap-1">
-                          {product.sizes.slice(0, 3).map((size) => (
+                          {product.sizes.slice(0, 2).map((size) => (
                             <span
                               key={size}
                               className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
@@ -99,9 +117,76 @@ export default function RolgordijnenPage() {
                               {size}
                             </span>
                           ))}
-                          {product.sizes.length > 3 && (
+                          {product.sizes.length > 2 && (
                             <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
-                              +{product.sizes.length - 3}
+                              +{product.sizes.length - 2}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Verduisterende Rolgordijnen Section */}
+            <div className="mb-8">
+              <div className="flex items-center gap-3 mb-6">
+                <Moon className="h-6 w-6 text-slate-700" />
+                <h2 className="text-2xl font-semibold text-gray-900">
+                  Verduisterende Rolgordijnen
+                </h2>
+                <Badge variant="outline" className="text-slate-700 border-slate-300">
+                  100% Verduisterend
+                </Badge>
+              </div>
+              <p className="text-gray-600 mb-8 max-w-3xl">
+                Volledige lichtblokkering voor optimale privacy en perfecte nachtrust. 
+                Ideaal voor slaapkamers, kinderkamers en thuisbioscopen.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {verduisterendeProducts.map((product) => (
+                  <div
+                    key={product.id}
+                    className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                    onClick={() => handleProductClick(product.id)}
+                  >
+                    <div className="aspect-w-16 aspect-h-12 overflow-hidden rounded-t-lg">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-48 object-cover"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <h3 className="text-lg font-semibold text-gray-900">
+                          {product.name}
+                        </h3>
+                        <Badge variant="secondary" className="text-xs bg-slate-100 text-slate-800">
+                          Verduisterend
+                        </Badge>
+                      </div>
+                      <p className="text-gray-600 text-sm mb-3">
+                        {product.shortDescription}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-2xl font-bold text-primary">
+                          €{product.price.toFixed(2)}
+                        </span>
+                        <div className="flex flex-wrap gap-1">
+                          {product.sizes.slice(0, 2).map((size) => (
+                            <span
+                              key={size}
+                              className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
+                            >
+                              {size}
+                            </span>
+                          ))}
+                          {product.sizes.length > 2 && (
+                            <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                              +{product.sizes.length - 2}
                             </span>
                           )}
                         </div>
