@@ -27,9 +27,9 @@ export default function Footer() {
         <div className="hidden sm:block py-12 sm:py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="sm:col-span-2 lg:col-span-1">
-              <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">SunShade & Co.</h3>
+              <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">LUMISHADÉ</h3>
               <p className="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-                Premium ready-made window decorations - Quality solutions for modern homes.
+                Premium kant-en-klare raamdecoraties - Kwaliteitsoplossingen voor ALLE woningen.
               </p>
               <div className="flex space-x-4">
                 <Facebook className="w-6 h-6 hover:text-primary cursor-pointer transition-colors min-h-[44px] min-w-[44px] p-2" />
@@ -54,7 +54,7 @@ export default function Footer() {
                     onClick={() => scrollToSection('products')}
                     className="hover:text-white transition-colors text-left min-h-[44px] flex items-center"
                   >
-                    Products
+                    Producten
                   </button>
                 </li>
                 <li>
@@ -62,7 +62,7 @@ export default function Footer() {
                     onClick={() => scrollToSection('about')}
                     className="hover:text-white transition-colors text-left min-h-[44px] flex items-center"
                   >
-                    About Us
+                    Over ons
                   </button>
                 </li>
                 <li>
@@ -77,12 +77,12 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Legal</h4>
+              <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Juridisch</h4>
               <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
-                <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Terms & Conditions</a></li>
-                <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Returns Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Warranty</a></li>
+                <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Privacy beleid</a></li>
+                <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Algemene voorwaarden</a></li>
+                <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Retour beleid</a></li>
+                <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Garantie</a></li>
               </ul>
             </div>
 
@@ -98,7 +98,7 @@ export default function Footer() {
 
           <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center text-gray-400">
             <p className="text-xs sm:text-sm leading-relaxed">
-              &copy; 2025 SunShade & Co. All rights reserved. | <a href="#" className="hover:text-white">Privacy Policy</a> | <a href="#" className="hover:text-white">Terms & Conditions</a>
+              &copy; 2025 LUMISHADÉ All rights reserved. | <a href="#" className="hover:text-white">Privacy beleid</a> | <a href="#" className="hover:text-white">Algemene voorwaarden</a>
             </p>
           </div>
         </div>
@@ -107,9 +107,9 @@ export default function Footer() {
         <div className="sm:hidden py-6 space-y-3">
           {/* Company Logo & Slogan - Centered */}
           <div className="text-center">
-            <h3 className="text-lg font-bold mb-2">LUMISHADE</h3>
+            <h3 className="text-lg font-bold mb-2">LUMISHADÉ</h3>
             <p className="text-gray-400 text-sm px-2">
-              Premium ready-made window decorations...
+              Premium kant-en-klare raamdecoraties...
             </p>
           </div>
 
@@ -137,7 +137,7 @@ export default function Footer() {
               onClick={() => toggleSection('quickLinks')}
               className="flex items-center justify-between w-full text-white font-medium py-2"
             >
-              <span className="text-sm">Quick Links</span>
+              <span className="text-sm">Snelle koppelingen</span>
               <ChevronDown className={`w-4 h-4 transition-transform ${quickLinksOpen ? 'rotate-180' : ''}`} />
             </button>
             {quickLinksOpen && (
@@ -152,13 +152,13 @@ export default function Footer() {
                   onClick={() => scrollToSection('products')}
                   className="block w-full text-left text-gray-400 hover:text-white transition-colors text-sm py-1"
                 >
-                  • Products
+                  • Producten
                 </button>
                 <button 
                   onClick={() => scrollToSection('about')}
                   className="block w-full text-left text-gray-400 hover:text-white transition-colors text-sm py-1"
                 >
-                  • About Us
+                  • Over ons
                 </button>
                 <button 
                   onClick={() => scrollToSection('contact')}
@@ -176,22 +176,22 @@ export default function Footer() {
               onClick={() => toggleSection('legal')}
               className="flex items-center justify-between w-full text-white font-medium py-2"
             >
-              <span className="text-sm">Legal</span>
+              <span className="text-sm">Juridisch</span>
               <ChevronDown className={`w-4 h-4 transition-transform ${legalOpen ? 'rotate-180' : ''}`} />
             </button>
             {legalOpen && (
               <div className="space-y-1 mt-2 pb-2">
                 <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm py-1">
-                  • Privacy Policy
+                  • Privacy beleid
                 </a>
                 <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm py-1">
-                  • Terms & Conditions
+                  • Algemene voorwaarden
                 </a>
                 <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm py-1">
-                  • Returns Policy
+                  • Retour beleid
                 </a>
                 <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm py-1">
-                  • Warranty
+                  • Garantie
                 </a>
               </div>
             )}
@@ -202,14 +202,14 @@ export default function Footer() {
             <div className="flex justify-center space-x-6">
               <Facebook className="w-6 h-6 hover:text-primary cursor-pointer transition-colors" />
               <Instagram className="w-6 h-6 hover:text-primary cursor-pointer transition-colors" />
-              <Twitter className="w-6 h-6 hover:text-primary cursor-pointer transition-colors" />
+
             </div>
           </div>
 
           {/* Copyright - Mobile */}
           <div className="border-t border-gray-800 pt-3 text-center">
             <p className="text-xs text-gray-400">
-              &copy; 2025 SunShade & Co. All rights reserved.
+              &copy; 2025 LUMISHADÉ All rights reserved.
             </p>
           </div>
         </div>
