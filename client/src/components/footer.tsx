@@ -1,6 +1,10 @@
-import { Facebook, Instagram, Twitter, Phone, Mail, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Phone, Mail, MapPin, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
 
 export default function Footer() {
+  const [quickLinksOpen, setQuickLinksOpen] = useState(false);
+  const [legalOpen, setLegalOpen] = useState(false);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -8,84 +12,206 @@ export default function Footer() {
     }
   };
 
+  const toggleSection = (section: 'quickLinks' | 'legal') => {
+    if (section === 'quickLinks') {
+      setQuickLinksOpen(!quickLinksOpen);
+    } else {
+      setLegalOpen(!legalOpen);
+    }
+  };
+
   return (
     <footer id="contact" className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          <div className="sm:col-span-2 lg:col-span-1">
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">SunShade & Co.</h3>
-            <p className="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-              Premium ready-made window decorations - Quality solutions for modern homes.
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Desktop Layout - Hidden on mobile */}
+        <div className="hidden sm:block py-12 sm:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            <div className="sm:col-span-2 lg:col-span-1">
+              <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">SunShade & Co.</h3>
+              <p className="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
+                Premium ready-made window decorations - Quality solutions for modern homes.
+              </p>
+              <div className="flex space-x-4">
+                <Facebook className="w-6 h-6 hover:text-primary cursor-pointer transition-colors min-h-[44px] min-w-[44px] p-2" />
+                <Instagram className="w-6 h-6 hover:text-primary cursor-pointer transition-colors min-h-[44px] min-w-[44px] p-2" />
+                <Twitter className="w-6 h-6 hover:text-primary cursor-pointer transition-colors min-h-[44px] min-w-[44px] p-2" />
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('home')}
+                    className="hover:text-white transition-colors text-left min-h-[44px] flex items-center"
+                  >
+                    Home
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('products')}
+                    className="hover:text-white transition-colors text-left min-h-[44px] flex items-center"
+                  >
+                    Products
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('about')}
+                    className="hover:text-white transition-colors text-left min-h-[44px] flex items-center"
+                  >
+                    About Us
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('contact')}
+                    className="hover:text-white transition-colors text-left min-h-[44px] flex items-center"
+                  >
+                    Contact
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Legal</h4>
+              <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
+                <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Terms & Conditions</a></li>
+                <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Returns Policy</a></li>
+                <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Warranty</a></li>
+              </ul>
+            </div>
+
+            <div className="sm:col-span-2 lg:col-span-1">
+              <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Contact Info</h4>
+              <div className="space-y-2 text-gray-400 text-sm sm:text-base">
+                <p className="flex items-center min-h-[44px]"><Phone className="w-4 h-4 mr-2 flex-shrink-0" />+31 20 123 4567</p>
+                <p className="flex items-center min-h-[44px]"><Mail className="w-4 h-4 mr-2 flex-shrink-0" />info@sunshadeandco.eu</p>
+                <p className="flex items-start min-h-[44px]"><MapPin className="w-4 h-4 mr-2 flex-shrink-0 mt-1" />123 Window Street, Amsterdam, 1000 AB</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center text-gray-400">
+            <p className="text-xs sm:text-sm leading-relaxed">
+              &copy; 2025 SunShade & Co. All rights reserved. | <a href="#" className="hover:text-white">Privacy Policy</a> | <a href="#" className="hover:text-white">Terms & Conditions</a>
             </p>
-            <div className="flex space-x-4">
-              <Facebook className="w-6 h-6 hover:text-primary cursor-pointer transition-colors min-h-[44px] min-w-[44px] p-2" />
-              <Instagram className="w-6 h-6 hover:text-primary cursor-pointer transition-colors min-h-[44px] min-w-[44px] p-2" />
-              <Twitter className="w-6 h-6 hover:text-primary cursor-pointer transition-colors min-h-[44px] min-w-[44px] p-2" />
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
-              <li>
-                <button 
-                  onClick={() => scrollToSection('home')}
-                  className="hover:text-white transition-colors text-left min-h-[44px] flex items-center"
-                >
-                  Home
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => scrollToSection('products')}
-                  className="hover:text-white transition-colors text-left min-h-[44px] flex items-center"
-                >
-                  Products
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => scrollToSection('about')}
-                  className="hover:text-white transition-colors text-left min-h-[44px] flex items-center"
-                >
-                  About Us
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className="hover:text-white transition-colors text-left min-h-[44px] flex items-center"
-                >
-                  Contact
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Legal</h4>
-            <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
-              <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Terms & Conditions</a></li>
-              <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Returns Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors min-h-[44px] flex items-center">Warranty</a></li>
-            </ul>
-          </div>
-
-          <div className="sm:col-span-2 lg:col-span-1">
-            <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Contact Info</h4>
-            <div className="space-y-2 text-gray-400 text-sm sm:text-base">
-              <p className="flex items-center min-h-[44px]"><Phone className="w-4 h-4 mr-2 flex-shrink-0" />+31 20 123 4567</p>
-              <p className="flex items-center min-h-[44px]"><Mail className="w-4 h-4 mr-2 flex-shrink-0" />info@sunshadeandco.eu</p>
-              <p className="flex items-start min-h-[44px]"><MapPin className="w-4 h-4 mr-2 flex-shrink-0 mt-1" />123 Window Street, Amsterdam, 1000 AB</p>
-            </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center text-gray-400">
-          <p className="text-xs sm:text-sm leading-relaxed">
-            &copy; 2025 SunShade & Co. All rights reserved. | <a href="#" className="hover:text-white">Privacy Policy</a> | <a href="#" className="hover:text-white">Terms & Conditions</a>
-          </p>
+        {/* Mobile Layout - Visible only on mobile */}
+        <div className="sm:hidden py-6 space-y-3">
+          {/* Company Logo & Slogan - Centered */}
+          <div className="text-center">
+            <h3 className="text-lg font-bold mb-2">LUMISHADE</h3>
+            <p className="text-gray-400 text-sm px-2">
+              Premium ready-made window decorations...
+            </p>
+          </div>
+
+          {/* Contact Info - Compact 2 lines */}
+          <div className="text-center space-y-1">
+            <div className="flex justify-center items-center space-x-4 text-sm">
+              <div className="flex items-center">
+                <Phone className="w-4 h-4 mr-1" />
+                <span>+31 20 123 4567</span>
+              </div>
+              <div className="flex items-center">
+                <Mail className="w-4 h-4 mr-1" />
+                <span>info@sunshadeandco.eu</span>
+              </div>
+            </div>
+            <div className="flex justify-center items-center text-sm">
+              <MapPin className="w-4 h-4 mr-1" />
+              <span>123 Window Street, Amsterdam</span>
+            </div>
+          </div>
+
+          {/* Quick Links - Collapsible */}
+          <div className="border-t border-gray-800 pt-3">
+            <button
+              onClick={() => toggleSection('quickLinks')}
+              className="flex items-center justify-between w-full text-white font-medium py-2"
+            >
+              <span className="text-sm">Quick Links</span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${quickLinksOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {quickLinksOpen && (
+              <div className="space-y-1 mt-2 pb-2">
+                <button 
+                  onClick={() => scrollToSection('home')}
+                  className="block w-full text-left text-gray-400 hover:text-white transition-colors text-sm py-1"
+                >
+                  • Home
+                </button>
+                <button 
+                  onClick={() => scrollToSection('products')}
+                  className="block w-full text-left text-gray-400 hover:text-white transition-colors text-sm py-1"
+                >
+                  • Products
+                </button>
+                <button 
+                  onClick={() => scrollToSection('about')}
+                  className="block w-full text-left text-gray-400 hover:text-white transition-colors text-sm py-1"
+                >
+                  • About Us
+                </button>
+                <button 
+                  onClick={() => scrollToSection('contact')}
+                  className="block w-full text-left text-gray-400 hover:text-white transition-colors text-sm py-1"
+                >
+                  • Contact
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Legal - Collapsible */}
+          <div className="border-t border-gray-800 pt-3">
+            <button
+              onClick={() => toggleSection('legal')}
+              className="flex items-center justify-between w-full text-white font-medium py-2"
+            >
+              <span className="text-sm">Legal</span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${legalOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {legalOpen && (
+              <div className="space-y-1 mt-2 pb-2">
+                <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm py-1">
+                  • Privacy Policy
+                </a>
+                <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm py-1">
+                  • Terms & Conditions
+                </a>
+                <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm py-1">
+                  • Returns Policy
+                </a>
+                <a href="#" className="block text-gray-400 hover:text-white transition-colors text-sm py-1">
+                  • Warranty
+                </a>
+              </div>
+            )}
+          </div>
+
+          {/* Social Icons - Bottom */}
+          <div className="border-t border-gray-800 pt-3">
+            <div className="flex justify-center space-x-6">
+              <Facebook className="w-6 h-6 hover:text-primary cursor-pointer transition-colors" />
+              <Instagram className="w-6 h-6 hover:text-primary cursor-pointer transition-colors" />
+              <Twitter className="w-6 h-6 hover:text-primary cursor-pointer transition-colors" />
+            </div>
+          </div>
+
+          {/* Copyright - Mobile */}
+          <div className="border-t border-gray-800 pt-3 text-center">
+            <p className="text-xs text-gray-400">
+              &copy; 2025 SunShade & Co. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
