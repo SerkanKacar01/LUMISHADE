@@ -24,8 +24,8 @@ export default function Header({ onCartClick }: HeaderProps) {
 
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-14 sm:h-16">
+      <div className="max-w-7xl mx-auto mobile-tight px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 sm:h-16">
           <div className="flex items-center">
             <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">
               LUMISHADÉ
@@ -120,11 +120,11 @@ export default function Header({ onCartClick }: HeaderProps) {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t bg-white">
-            <div className="flex flex-col space-y-4">
+          <div className="md:hidden py-2 border-t bg-white mobile-container">
+            <div className="flex flex-col space-y-2">
               <button
                 onClick={() => scrollToSection("home")}
-                className="text-gray-700 hover:text-primary transition-colors text-left text-base font-medium py-2 px-2 min-h-[44px] flex items-center"
+                className="text-gray-700 hover:text-primary transition-colors text-left text-base font-medium py-3 px-2 min-h-[44px] flex items-center rounded-lg"
               >
                 Home
               </button>
@@ -133,24 +133,24 @@ export default function Header({ onCartClick }: HeaderProps) {
               <div>
                 <button
                   onClick={() => setIsProductsDropdownOpen(!isProductsDropdownOpen)}
-                  className="text-gray-700 hover:text-primary transition-colors text-left text-base font-medium py-2 px-2 min-h-[44px] flex items-center justify-between w-full"
+                  className="text-gray-700 hover:text-primary transition-colors text-left text-base font-medium py-3 px-2 min-h-[44px] flex items-center justify-between w-full rounded-lg"
                 >
                   Producten
                   <ChevronDown className={`h-4 w-4 transition-transform ${isProductsDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
                 
                 {isProductsDropdownOpen && (
-                  <div className="pl-4 space-y-2">
+                  <div className="pl-4 space-y-1">
                     <Link
                       to="/products/rolgordijnen"
-                      className="block text-gray-600 hover:text-primary transition-colors text-base py-2 px-2 min-h-[44px] flex items-center"
+                      className="block text-gray-600 hover:text-primary transition-colors text-base py-3 px-2 min-h-[40px] flex items-center rounded-lg"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Rolgordijnen
                     </Link>
                     <Link
                       to="/products/duo-rolgordijnen"
-                      className="block text-gray-600 hover:text-primary transition-colors text-base py-2 px-2 min-h-[44px] flex items-center"
+                      className="block text-gray-600 hover:text-primary transition-colors text-base py-3 px-2 min-h-[40px] flex items-center rounded-lg"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Duo-rolgordijnen
@@ -161,13 +161,13 @@ export default function Header({ onCartClick }: HeaderProps) {
               
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-gray-700 hover:text-primary transition-colors text-left text-base font-medium py-2 px-2 min-h-[44px] flex items-center"
+                className="text-gray-700 hover:text-primary transition-colors text-left text-base font-medium py-3 px-2 min-h-[44px] flex items-center rounded-lg"
               >
                 Over ons
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="text-gray-700 hover:text-primary transition-colors text-left text-base font-medium py-2 px-2 min-h-[44px] flex items-center"
+                className="text-gray-700 hover:text-primary transition-colors text-left text-base font-medium py-3 px-2 min-h-[44px] flex items-center rounded-lg"
               >
                 Contact
               </button>
