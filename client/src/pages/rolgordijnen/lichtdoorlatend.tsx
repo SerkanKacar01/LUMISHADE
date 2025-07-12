@@ -131,9 +131,17 @@ export default function RolgordijnenLichtdoorlatendPage() {
                     <div className="text-xl font-bold text-primary mb-4">
                       €{product.price}
                     </div>
-                    <Button className="w-full">
-                      Bekijk product
-                    </Button>
+                    {product.id === "1" ? (
+                      <Link to="/rolgordijnen/lichtdoorlatend/klassieke-rolgordijn-wit">
+                        <Button className="w-full">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : (
+                      <Button className="w-full">
+                        Bekijk product
+                      </Button>
+                    )}
                   </div>
                 </div>
               ))}
