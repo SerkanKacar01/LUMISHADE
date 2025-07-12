@@ -6,7 +6,7 @@ import CartModal from "@/components/cart-modal";
 import CheckoutModal from "@/components/checkout-modal";
 import { getProductsByCategoryAndFabricType } from "@/data/products";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Plus, Minus } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 
 export default function DuoRolgordijnenPage() {
@@ -65,60 +65,39 @@ export default function DuoRolgordijnenPage() {
                 Lichtdoorlatende Duo-rolgordijnen
               </h2>
               
-              <div className="bg-white rounded-lg shadow-sm p-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  <div className="aspect-w-16 aspect-h-12">
-                    <img
-                      src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
-                      alt="Premium Duo Rolgordijn"
-                      className="w-full h-48 object-cover rounded-lg"
-                    />
-                  </div>
-                  
-                  <div className="flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                        Premium Duo Rolgordijn
-                      </h3>
-                      <p className="text-gray-600 mb-4">
-                        Luxurious duo roller blind with premium finish
-                      </p>
-                      <div className="text-2xl font-bold text-primary mb-4">
-                        €109.99
-                      </div>
+              <Link to="/duo-rolgordijnen/lichtdoorlatend">
+                <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow cursor-pointer">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div className="aspect-w-16 aspect-h-12">
+                      <img
+                        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                        alt="Premium Duo Rolgordijn"
+                        className="w-full h-48 object-cover rounded-lg"
+                      />
                     </div>
                     
-                    <div className="space-y-4">
+                    <div className="flex flex-col justify-between">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                          Afmetingen
-                        </label>
-                        <select className="w-full border border-gray-300 rounded-md px-3 py-2">
-                          <option>80×150 cm</option>
-                          <option>100×150 cm</option>
-                          <option>120×180 cm</option>
-                        </select>
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                          Premium Duo Rolgordijn
+                        </h3>
+                        <p className="text-gray-600 mb-4">
+                          Luxurious duo roller blind with premium finish
+                        </p>
+                        <div className="text-2xl font-bold text-primary mb-4">
+                          €109.99
+                        </div>
                       </div>
                       
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-3">
-                          <button className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50">
-                            <Minus className="h-4 w-4" />
-                          </button>
-                          <span className="font-medium">1</span>
-                          <button className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50">
-                            <Plus className="h-4 w-4" />
-                          </button>
-                        </div>
-                        
-                        <Button className="flex-1 ml-4">
-                          Toevoegen aan winkelwagen
+                      <div>
+                        <Button className="w-full">
+                          Bekijk alle producten
                         </Button>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
 
             {/* Blackout Duo Roller Blinds Section */}
@@ -127,60 +106,39 @@ export default function DuoRolgordijnenPage() {
                 Verduisterende Duo-rolgordijnen
               </h2>
               
-              <div className="bg-white rounded-lg shadow-sm p-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  <div className="aspect-w-16 aspect-h-12">
-                    <img
-                      src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
-                      alt="Dag & Nacht Duo Rolgordijn"
-                      className="w-full h-48 object-cover rounded-lg"
-                    />
-                  </div>
-                  
-                  <div className="flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                        Dag & Nacht Duo Rolgordijn
-                      </h3>
-                      <p className="text-gray-600 mb-4">
-                        Day and night functionality in one blind
-                      </p>
-                      <div className="text-2xl font-bold text-primary mb-4">
-                        €94.99
-                      </div>
+              <Link to="/duo-rolgordijnen/verduisterend">
+                <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow cursor-pointer">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div className="aspect-w-16 aspect-h-12">
+                      <img
+                        src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                        alt="Dag & Nacht Duo Rolgordijn"
+                        className="w-full h-48 object-cover rounded-lg"
+                      />
                     </div>
                     
-                    <div className="space-y-4">
+                    <div className="flex flex-col justify-between">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                          Afmetingen
-                        </label>
-                        <select className="w-full border border-gray-300 rounded-md px-3 py-2">
-                          <option>80×150 cm</option>
-                          <option>100×150 cm</option>
-                          <option>120×180 cm</option>
-                        </select>
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                          Dag & Nacht Duo Rolgordijn
+                        </h3>
+                        <p className="text-gray-600 mb-4">
+                          Day and night functionality in one blind
+                        </p>
+                        <div className="text-2xl font-bold text-primary mb-4">
+                          €94.99
+                        </div>
                       </div>
                       
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-3">
-                          <button className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50">
-                            <Minus className="h-4 w-4" />
-                          </button>
-                          <span className="font-medium">1</span>
-                          <button className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50">
-                            <Plus className="h-4 w-4" />
-                          </button>
-                        </div>
-                        
-                        <Button className="flex-1 ml-4">
-                          Toevoegen aan winkelwagen
+                      <div>
+                        <Button className="w-full">
+                          Bekijk alle producten
                         </Button>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </section>
