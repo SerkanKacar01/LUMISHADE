@@ -1,14 +1,12 @@
 import { useState } from "react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import ProductGrid from "@/components/product-grid";
 import ProductDetailModal from "@/components/product-detail-modal";
 import CartModal from "@/components/cart-modal";
 import CheckoutModal from "@/components/checkout-modal";
 import { getProductsByCategoryAndFabricType } from "@/data/products";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Sun, Moon } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
 
 export default function DuoRolgordijnenPage() {
@@ -63,21 +61,12 @@ export default function DuoRolgordijnenPage() {
         {/* Products Section */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
             {/* Lichtdoorlatende Duo-rolgordijnen Section */}
             <div className="mb-16">
-              <div className="flex items-center gap-3 mb-6">
-                <Sun className="h-6 w-6 text-amber-600" />
-                <h2 className="text-2xl font-semibold text-gray-900">
-                  Lichtdoorlatende Duo-rolgordijnen
-                </h2>
-                <Badge variant="outline" className="text-amber-700 border-amber-300">
-                  Lichtdoorlatend
-                </Badge>
-              </div>
-              <p className="text-gray-600 mb-8 max-w-3xl">
-                Zebra-stijl en transparante patronen voor flexibele lichtcontrole. 
-                Creëer de perfecte sfeer met variabele lichtdoorval door de unieke strip-structuur.
-              </p>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-8">
+                Lichtdoorlatende Duo-rolgordijnen
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {lichtdoorlatendeDuoProducts.map((product) => (
                   <div
@@ -93,14 +82,9 @@ export default function DuoRolgordijnenPage() {
                       />
                     </div>
                     <div className="p-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <h3 className="text-lg font-semibold text-gray-900">
-                          {product.name}
-                        </h3>
-                        <Badge variant="secondary" className="text-xs bg-amber-100 text-amber-800">
-                          Lichtdoorlatend
-                        </Badge>
-                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                        {product.name}
+                      </h3>
                       <p className="text-gray-600 text-sm mb-3">
                         {product.shortDescription}
                       </p>
@@ -109,7 +93,7 @@ export default function DuoRolgordijnenPage() {
                           €{product.price.toFixed(2)}
                         </span>
                         <div className="flex flex-wrap gap-1">
-                          {product.sizes.slice(0, 2).map((size) => (
+                          {product.sizes.slice(0, 3).map((size) => (
                             <span
                               key={size}
                               className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
@@ -117,9 +101,9 @@ export default function DuoRolgordijnenPage() {
                               {size}
                             </span>
                           ))}
-                          {product.sizes.length > 2 && (
+                          {product.sizes.length > 3 && (
                             <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
-                              +{product.sizes.length - 2}
+                              +{product.sizes.length - 3}
                             </span>
                           )}
                         </div>
@@ -132,19 +116,9 @@ export default function DuoRolgordijnenPage() {
 
             {/* Verduisterende Duo-rolgordijnen Section */}
             <div className="mb-8">
-              <div className="flex items-center gap-3 mb-6">
-                <Moon className="h-6 w-6 text-slate-700" />
-                <h2 className="text-2xl font-semibold text-gray-900">
-                  Verduisterende Duo-rolgordijnen
-                </h2>
-                <Badge variant="outline" className="text-slate-700 border-slate-300">
-                  100% Verduisterend
-                </Badge>
-              </div>
-              <p className="text-gray-600 mb-8 max-w-3xl">
-                Dag & Nacht en Premium Duo systemen voor maximale privacy en lichtcontrole. 
-                Schakel eenvoudig tussen volledige verduistering en gefilterd licht.
-              </p>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-8">
+                Verduisterende Duo-rolgordijnen
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {verduisterendeDuoProducts.map((product) => (
                   <div
@@ -160,14 +134,9 @@ export default function DuoRolgordijnenPage() {
                       />
                     </div>
                     <div className="p-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <h3 className="text-lg font-semibold text-gray-900">
-                          {product.name}
-                        </h3>
-                        <Badge variant="secondary" className="text-xs bg-slate-100 text-slate-800">
-                          Verduisterend
-                        </Badge>
-                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                        {product.name}
+                      </h3>
                       <p className="text-gray-600 text-sm mb-3">
                         {product.shortDescription}
                       </p>
@@ -176,7 +145,7 @@ export default function DuoRolgordijnenPage() {
                           €{product.price.toFixed(2)}
                         </span>
                         <div className="flex flex-wrap gap-1">
-                          {product.sizes.slice(0, 2).map((size) => (
+                          {product.sizes.slice(0, 3).map((size) => (
                             <span
                               key={size}
                               className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded"
@@ -184,9 +153,9 @@ export default function DuoRolgordijnenPage() {
                               {size}
                             </span>
                           ))}
-                          {product.sizes.length > 2 && (
+                          {product.sizes.length > 3 && (
                             <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
-                              +{product.sizes.length - 2}
+                              +{product.sizes.length - 3}
                             </span>
                           )}
                         </div>
