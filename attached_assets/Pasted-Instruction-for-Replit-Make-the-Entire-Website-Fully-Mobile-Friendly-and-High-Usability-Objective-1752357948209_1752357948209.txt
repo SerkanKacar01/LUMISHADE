@@ -1,0 +1,32 @@
+Instruction for Replit – Make the Entire Website Fully Mobile-Friendly and High-Usability
+
+Objective:
+Optimize the full website for mobile users, ensuring perfect readability, touch usability, and smooth interaction on all screen sizes, especially smartphones.
+
+⸻
+
+✅ Instruction Details:
+	1.	Ensure full responsiveness site-wide
+Go through all pages, sections, and components and verify that the layout responds perfectly on screens from 320px to 768px wide.
+	2.	Use mobile-first design logic
+Prioritize vertical stacking of elements, large tap targets, and content readability without zooming or side-scrolling.
+	3.	Apply consistent padding and spacing
+Ensure adequate white space around buttons, inputs, and text blocks on mobile. Use consistent spacing for better breathing room and focus.
+	4.	Optimize font sizes for mobile
+Adjust font sizes to remain easily legible on small screens. Headings should remain bold and clear, but not oversized.
+	5.	Buttons and dropdowns
+
+	•	Buttons must be large enough to tap with one finger (minimum height: 44px).
+	•	Dropdowns must open cleanly and not overflow beyond the screen.
+	•	Grid selectors (e.g., width options) must be converted to tap-friendly button grids.
+
+	6.	Sticky mobile header or nav icon
+Ensure the mobile menu is easily accessible with a hamburger menu icon. Keep the header fixed at the top on scroll for fast navigation access.
+	7.	Images and containers
+All images and product blocks must scale automatically and fit 100% width of their container on mobile.
+	8.	Forms and inputs
+Make sure all forms are touch-friendly, with clearly visible labels, large input fields, and easy-to-select options.
+	9.	Test every page individually
+Carefully test the homepage, product category pages, product detail pages, cart, and footer to verify each is fully functional and aesthetically clean on mobile.
+	10.	Improve mobile footer behavior
+Stack footer content logically. Keep contact info, payment logos, and navigation links readable and scrollable with clear hierarchy.
