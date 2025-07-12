@@ -11,6 +11,7 @@ export default function KlassiekeRolgordijnWitPage() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [selectedWidth, setSelectedWidth] = useState(100);
   const [operatingSide, setOperatingSide] = useState("rechts");
 
   const handleCartClick = () => {
@@ -27,10 +28,13 @@ export default function KlassiekeRolgordijnWitPage() {
       product: "Klassieke Rolgordijn Wit",
       quantity,
       operatingSide,
-      size: "100 cm x 175 cm",
+      size: `${selectedWidth} cm x 210 cm`,
       price: 45.99
     });
   };
+
+  // Generate width options from 40 to 280 cm in 5 cm increments
+  const widthOptions = Array.from({ length: ((280 - 40) / 5 + 1) }, (_, i) => 40 + i * 5);
 
   return (
     <>
@@ -90,13 +94,39 @@ export default function KlassiekeRolgordijnWitPage() {
               </select>
             </div>
 
-            {/* Standard Size Display */}
+            {/* Width Selector */}
             <div className="space-y-3">
               <label className="block text-lg font-semibold text-gray-900">
-                Standaard maat
+                Width (cm)
+              </label>
+              <select 
+                value={selectedWidth}
+                onChange={(e) => setSelectedWidth(Number(e.target.value))}
+                className="w-full max-w-xs border border-gray-300 rounded-md px-4 py-3 text-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              >
+                {widthOptions.map(width => (
+                  <option key={width} value={width}>{width} cm</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Selected Size Display */}
+            <div className="space-y-3">
+              <label className="block text-lg font-semibold text-gray-900">
+                Selected size
               </label>
               <div className="text-lg text-gray-700 bg-gray-50 px-4 py-3 rounded-md border">
-                100 cm x 175 cm
+                {selectedWidth} cm x 210 cm
+              </div>
+            </div>
+
+            {/* Height Display */}
+            <div className="space-y-3">
+              <label className="block text-lg font-semibold text-gray-900">
+                Height
+              </label>
+              <div className="text-lg text-gray-700 bg-gray-50 px-4 py-3 rounded-md border">
+                210 cm (standard)
               </div>
             </div>
 
