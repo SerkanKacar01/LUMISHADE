@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Plus, Minus, Trash2 } from 'lucide-react';
 import { useCart } from '@/hooks/use-cart';
+import { formatPrice } from '@/lib/utils';
 
 interface CartModalProps {
   isOpen: boolean;
@@ -43,7 +44,7 @@ export default function CartModal({ isOpen, onClose, onCheckout }: CartModalProp
                 <div className="flex-1">
                   <h4 className="font-semibold">{item.name}</h4>
                   <p className="text-sm text-gray-600">Size: {item.size}cm</p>
-                  <p className="text-sm text-gray-600">£{item.price.toFixed(2)} each</p>
+                  <p className="text-sm text-gray-600">{formatPrice(item.price)} each</p>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Button 
@@ -64,7 +65,7 @@ export default function CartModal({ isOpen, onClose, onCheckout }: CartModalProp
                   </Button>
                 </div>
                 <div className="text-right">
-                  <p className="font-semibold">£{(item.price * item.quantity).toFixed(2)}</p>
+                  <p className="font-semibold">{formatPrice(item.price * item.quantity)}</p>
                   <Button 
                     variant="ghost" 
                     size="sm"
@@ -82,7 +83,7 @@ export default function CartModal({ isOpen, onClose, onCheckout }: CartModalProp
         <div className="border-t pt-6">
           <div className="flex justify-between items-center mb-4">
             <span className="text-xl font-semibold">Total:</span>
-            <span className="text-2xl font-bold text-primary">£{total.toFixed(2)}</span>
+            <span className="text-2xl font-bold text-primary">{formatPrice(total)}</span>
           </div>
 
           <div className="grid grid-cols-2 gap-4">

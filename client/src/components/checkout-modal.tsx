@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { useCart } from '@/hooks/use-cart';
 import { useToast } from '@/hooks/use-toast';
 import { Check } from 'lucide-react';
+import { formatPrice } from '@/lib/utils';
 
 interface CheckoutModalProps {
   isOpen: boolean;
@@ -174,13 +175,13 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
               {cart.map((item, index) => (
                 <div key={index} className="flex justify-between py-1">
                   <span>{item.name} ({item.size}cm) x {item.quantity}</span>
-                  <span>£{(item.price * item.quantity).toFixed(2)}</span>
+                  <span>{formatPrice(item.price * item.quantity)}</span>
                 </div>
               ))}
               <div className="border-t pt-2 mt-2">
                 <div className="flex justify-between font-semibold">
                   <span>Total:</span>
-                  <span>£{total.toFixed(2)}</span>
+                  <span>{formatPrice(total)}</span>
                 </div>
               </div>
             </div>

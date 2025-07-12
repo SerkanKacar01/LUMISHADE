@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { products, getProductsByCategory } from '@/data/products';
+import { formatPrice } from '@/lib/utils';
 
 interface ProductGridProps {
   onProductClick?: (productId: string) => void;
@@ -66,7 +67,7 @@ export default function ProductGrid({ onProductClick }: ProductGridProps) {
                 <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
                 <p className="text-gray-600 text-sm mb-4">{product.shortDescription}</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-primary">£{product.price.toFixed(2)}</span>
+                  <span className="text-2xl font-bold text-primary">{formatPrice(product.price)}</span>
                   <Button 
                     onClick={() => onProductClick?.(product.id)}
                     className="bg-primary hover:bg-primary/90 text-white"

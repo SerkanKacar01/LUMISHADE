@@ -6,6 +6,7 @@ import { Plus, Minus } from 'lucide-react';
 import { getProductById } from '@/data/products';
 import { useCart } from '@/hooks/use-cart';
 import { useToast } from '@/hooks/use-toast';
+import { formatPrice } from '@/lib/utils';
 
 interface ProductDetailModalProps {
   isOpen: boolean;
@@ -53,7 +54,7 @@ export default function ProductDetailModal({ isOpen, onClose, productId }: Produ
 
           <div>
             <div className="mb-6">
-              <span className="text-4xl font-bold text-primary">£{product.price.toFixed(2)}</span>
+              <span className="text-4xl font-bold text-primary">{formatPrice(product.price)}</span>
               <span className="text-gray-500 ml-2">inc. VAT</span>
             </div>
 

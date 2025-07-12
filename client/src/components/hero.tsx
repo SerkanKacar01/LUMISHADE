@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { ShoppingCart, Eye } from 'lucide-react';
 
 export default function Hero() {
   const scrollToProducts = () => {
@@ -24,14 +25,17 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button 
                 onClick={scrollToProducts}
-                className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg font-semibold"
+                className="bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-300 text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl flex items-center gap-2"
               >
+                <ShoppingCart className="w-5 h-5" />
                 Shop Now
               </Button>
               <Button 
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary/5 px-8 py-3 text-lg font-semibold"
+                onClick={scrollToProducts}
+                className="border-primary text-primary hover:bg-primary/10 hover:scale-105 transition-all duration-300 px-8 py-4 text-lg font-semibold shadow-md hover:shadow-lg flex items-center gap-2"
               >
+                <Eye className="w-5 h-5" />
                 View Catalogue
               </Button>
             </div>
