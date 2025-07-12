@@ -1,0 +1,69 @@
+PROJECT NAME:
+Ready-Made Sunshades & Window Decorations Webshop
+
+⸻
+
+GOAL:
+Build a modern, professional, mobile-friendly webshop in English that sells ready-made sunshades and various types of window decorations. The webshop should include a homepage, product detail pages, a shopping cart, and a basic checkout form. No databases or external payment systems are needed initially.
+
+⸻
+
+STEP 1 – GENERAL STRUCTURE:
+The project should be organized into folders for CSS, JavaScript, product data, images, and subpages like cart and checkout. Use static files only. The design must be simple, professional, and clearly structured.
+
+⸻
+
+STEP 2 – DESIGN STYLE:
+Use neutral colors like beige, white, and grey. The design must feel professional, not childish. Use clean layout principles, soft shadows, smooth fonts, and logical spacing. Avoid flashy animations. Make the layout responsive for mobile and desktop screens. The font must be modern and readable.
+
+⸻
+
+STEP 3 – HOMEPAGE CONTENT:
+The homepage should have a navigation header, a hero section with a promotional image and text, a product overview grid, a “Why Choose Us” section, and a footer with contact and legal links.
+
+⸻
+
+STEP 4 – PRODUCTS:
+Create a product listing with a variety of window decoration types, such as blackout roller blinds, textile window films, venetian blinds, mosquito screens, and curtains. Each product must have a name, price, image, short description, and category. Prices are fixed (no custom pricing logic). Products can be shown with example sizes like 100x150 cm.
+
+⸻
+
+STEP 5 – PRODUCT DETAIL PAGE:
+Each product has its own detail page with a large image, full description, fixed price, and a dropdown or list for selecting size. There must be a button to add the item to the shopping cart. Each click stores it in the local cart memory.
+
+⸻
+
+STEP 6 – SHOPPING CART PAGE:
+Display all added products with name, selected size, quantity, and price. Show the total amount at the bottom. Include buttons to remove products or update quantities. Add a button to proceed to checkout.
+
+⸻
+
+STEP 7 – CHECKOUT PAGE:
+Create a basic form for the customer to fill in their contact and delivery information. The form should include fields for full name, email, address, postal code, city, and phone number. There is no real payment, so a button should say “Place Order” and show a thank-you message after submission.
+
+⸻
+
+STEP 8 – LOGIC AND FUNCTIONALITY:
+The webshop must work completely client-side. Use local memory to store products and shopping cart data. The site must be fully usable without any login or registration. The add-to-cart button must store the product selection in memory and update the cart counter visibly.
+
+⸻
+
+STEP 9 – CONTENT AND IMAGES:
+Images can be placeholders. Use consistent naming. Use only royalty-free images (for example from Unsplash or Freepik). No copyrighted content.
+
+⸻
+
+STEP 10 – LANGUAGE & TEXTS:
+All texts must be in British English. No translation needed for now. Keep tone professional and customer-friendly.
+
+⸻
+
+STEP 11 – USER FLOW:
+Visitor lands on homepage, sees featured products, views a product, adds it to cart, goes to checkout, fills in form, places order, and sees confirmation.
+
+⸻
+
+REMARKS FOR REPLIT:
+	•	The entire site must be static and deployed within Replit.
+	•	No backend, no database, no API.
+	•	Must be ready to expand later with payment logic or international support.
