@@ -1,123 +1,11 @@
 import { Facebook, Instagram, Twitter, Phone, Mail, MapPin, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
-
-// Payment method icons as SVG components
-const BancontactIcon = () => (
-  <svg width="40" height="24" viewBox="0 0 40 24" className="h-6 text-gray-400 opacity-80 hover:opacity-100 transition-opacity">
-    <rect width="40" height="24" rx="4" fill="currentColor"/>
-    <path d="M8 8h6v2H8V8zm0 3h8v2H8v-2zm0 3h6v2H8v-2z" fill="white"/>
-    <path d="M18 8h14v8H18V8z" fill="white"/>
-    <path d="M20 10h10v1H20v-1zm0 2h8v1h-8v-1zm0 2h6v1h-6v-1z" fill="currentColor"/>
-  </svg>
-);
-
-const IdealIcon = () => (
-  <svg width="40" height="24" viewBox="0 0 40 24" className="h-6 text-gray-400 opacity-80 hover:opacity-100 transition-opacity">
-    <rect width="40" height="24" rx="4" fill="currentColor"/>
-    <path d="M6 8h2v8H6V8zm4 0h2v8h-2V8zm4 2h2v4h-2v-4zm4-2h2v8h-2V8zm4 1h2v6h-2V9zm4 0h2v6h-2V9zm4-1h2v8h-2V8z" fill="white"/>
-  </svg>
-);
-
-const PaypalIcon = () => (
-  <svg width="40" height="24" viewBox="0 0 40 24" className="h-6 text-gray-400 opacity-80 hover:opacity-100 transition-opacity">
-    <rect width="40" height="24" rx="4" fill="currentColor"/>
-    <path d="M8 8c0-1.1.9-2 2-2h8c2.2 0 4 1.8 4 4s-1.8 4-4 4h-4l-1 4h-3l2-8c0-.6-.4-1-1-1h-1l-2 9h-3l3-10zm8 4h4c.6 0 1-.4 1-1s-.4-1-1-1h-4v2z" fill="white"/>
-  </svg>
-);
-
-const KlarnaIcon = () => (
-  <svg width="40" height="24" viewBox="0 0 40 24" className="h-6 text-gray-400 opacity-80 hover:opacity-100 transition-opacity">
-    <rect width="40" height="24" rx="4" fill="currentColor"/>
-    <path d="M8 8h2v8H8V8zm4 0h2v3h-2V8zm0 5h2v3h-2v-3zm4-2h2l2-3h2l-2.5 3.5L22 16h-2l-2-3h-2v3h-2V8h2v3zm8-3h2v8h-2V8zm4 0h6v2h-4v1h3v2h-3v1h4v2h-6V8z" fill="white"/>
-  </svg>
-);
-
-const MastercardIcon = () => (
-  <svg width="40" height="24" viewBox="0 0 40 24" className="h-6 text-gray-400 opacity-80 hover:opacity-100 transition-opacity">
-    <rect width="40" height="24" rx="4" fill="currentColor"/>
-    <circle cx="16" cy="12" r="6" fill="white" opacity="0.8"/>
-    <circle cx="24" cy="12" r="6" fill="white"/>
-    <path d="M20 7.5c1.1 1.2 1.8 2.8 1.8 4.5s-.7 3.3-1.8 4.5c-1.1-1.2-1.8-2.8-1.8-4.5s.7-3.3 1.8-4.5z" fill="currentColor"/>
-  </svg>
-);
-
-const VisaIcon = () => (
-  <svg width="40" height="24" viewBox="0 0 40 24" className="h-6 text-gray-400 opacity-80 hover:opacity-100 transition-opacity">
-    <rect width="40" height="24" rx="4" fill="currentColor"/>
-    <path d="M8 8h3l2 8h-2.5l-.3-1.5H7.7L7.4 16H5l2.5-8zm.8 5h1.4l-.7-3.5L8.8 13z" fill="white"/>
-    <path d="M13 8h2v8h-2V8z" fill="white"/>
-    <path d="M16 10c0-.8.6-1.5 1.4-1.5s1.6.3 1.6.3V10s-.8-.5-1.3-.5c-.3 0-.7.2-.7.5 0 .8 2 .8 2 2.5 0 1.2-1 2-2 2s-2-.5-2-.5V13s1 .5 1.5.5c.4 0 .5-.3.5-.5 0-.8-2-.8-2-2.5z" fill="white"/>
-    <path d="M22 8h2l2 8h-2l-.2-1h-1.6l-.2 1h-2l2-8zm1 2l-.5 3h1l-.5-3z" fill="white"/>
-  </svg>
-);
-
-const AmexIcon = () => (
-  <svg width="40" height="24" viewBox="0 0 40 24" className="h-6 text-gray-400 opacity-80 hover:opacity-100 transition-opacity">
-    <rect width="40" height="24" rx="4" fill="currentColor"/>
-    <path d="M6 8h4l1 2 1-2h4v2h-3v1h2v1h-2v1h3v2h-4l-1-2-1 2H6V8zm2 2v4h1l1-1.5L11 14h1v-4h-1l-1 1.5L9 10H8z" fill="white"/>
-    <path d="M16 8h8v2h-6v1h5v1h-5v1h6v2h-8V8z" fill="white"/>
-    <path d="M26 8h2l2 3 2-3h2v8h-2v-4l-2 2-2-2v4h-2V8z" fill="white"/>
-  </svg>
-);
-
-// Mobile versions (smaller)
-const BancontactIconMobile = () => (
-  <svg width="40" height="24" viewBox="0 0 40 24" className="h-5 text-gray-400 opacity-80">
-    <rect width="40" height="24" rx="4" fill="currentColor"/>
-    <path d="M8 8h6v2H8V8zm0 3h8v2H8v-2zm0 3h6v2H8v-2z" fill="white"/>
-    <path d="M18 8h14v8H18V8z" fill="white"/>
-    <path d="M20 10h10v1H20v-1zm0 2h8v1h-8v-1zm0 2h6v1h-6v-1z" fill="currentColor"/>
-  </svg>
-);
-
-const IdealIconMobile = () => (
-  <svg width="40" height="24" viewBox="0 0 40 24" className="h-5 text-gray-400 opacity-80">
-    <rect width="40" height="24" rx="4" fill="currentColor"/>
-    <path d="M6 8h2v8H6V8zm4 0h2v8h-2V8zm4 2h2v4h-2v-4zm4-2h2v8h-2V8zm4 1h2v6h-2V9zm4 0h2v6h-2V9zm4-1h2v8h-2V8z" fill="white"/>
-  </svg>
-);
-
-const PaypalIconMobile = () => (
-  <svg width="40" height="24" viewBox="0 0 40 24" className="h-5 text-gray-400 opacity-80">
-    <rect width="40" height="24" rx="4" fill="currentColor"/>
-    <path d="M8 8c0-1.1.9-2 2-2h8c2.2 0 4 1.8 4 4s-1.8 4-4 4h-4l-1 4h-3l2-8c0-.6-.4-1-1-1h-1l-2 9h-3l3-10zm8 4h4c.6 0 1-.4 1-1s-.4-1-1-1h-4v2z" fill="white"/>
-  </svg>
-);
-
-const KlarnaIconMobile = () => (
-  <svg width="40" height="24" viewBox="0 0 40 24" className="h-5 text-gray-400 opacity-80">
-    <rect width="40" height="24" rx="4" fill="currentColor"/>
-    <path d="M8 8h2v8H8V8zm4 0h2v3h-2V8zm0 5h2v3h-2v-3zm4-2h2l2-3h2l-2.5 3.5L22 16h-2l-2-3h-2v3h-2V8h2v3zm8-3h2v8h-2V8zm4 0h6v2h-4v1h3v2h-3v1h4v2h-6V8z" fill="white"/>
-  </svg>
-);
-
-const MastercardIconMobile = () => (
-  <svg width="40" height="24" viewBox="0 0 40 24" className="h-5 text-gray-400 opacity-80">
-    <rect width="40" height="24" rx="4" fill="currentColor"/>
-    <circle cx="16" cy="12" r="6" fill="white" opacity="0.8"/>
-    <circle cx="24" cy="12" r="6" fill="white"/>
-    <path d="M20 7.5c1.1 1.2 1.8 2.8 1.8 4.5s-.7 3.3-1.8 4.5c-1.1-1.2-1.8-2.8-1.8-4.5s.7-3.3 1.8-4.5z" fill="currentColor"/>
-  </svg>
-);
-
-const VisaIconMobile = () => (
-  <svg width="40" height="24" viewBox="0 0 40 24" className="h-5 text-gray-400 opacity-80">
-    <rect width="40" height="24" rx="4" fill="currentColor"/>
-    <path d="M8 8h3l2 8h-2.5l-.3-1.5H7.7L7.4 16H5l2.5-8zm.8 5h1.4l-.7-3.5L8.8 13z" fill="white"/>
-    <path d="M13 8h2v8h-2V8z" fill="white"/>
-    <path d="M16 10c0-.8.6-1.5 1.4-1.5s1.6.3 1.6.3V10s-.8-.5-1.3-.5c-.3 0-.7.2-.7.5 0 .8 2 .8 2 2.5 0 1.2-1 2-2 2s-2-.5-2-.5V13s1 .5 1.5.5c.4 0 .5-.3.5-.5 0-.8-2-.8-2-2.5z" fill="white"/>
-    <path d="M22 8h2l2 8h-2l-.2-1h-1.6l-.2 1h-2l2-8zm1 2l-.5 3h1l-.5-3z" fill="white"/>
-  </svg>
-);
-
-const AmexIconMobile = () => (
-  <svg width="40" height="24" viewBox="0 0 40 24" className="h-5 text-gray-400 opacity-80">
-    <rect width="40" height="24" rx="4" fill="currentColor"/>
-    <path d="M6 8h4l1 2 1-2h4v2h-3v1h2v1h-2v1h3v2h-4l-1-2-1 2H6V8zm2 2v4h1l1-1.5L11 14h1v-4h-1l-1 1.5L9 10H8z" fill="white"/>
-    <path d="M16 8h8v2h-6v1h5v1h-5v1h6v2h-8V8z" fill="white"/>
-    <path d="M26 8h2l2 3 2-3h2v8h-2v-4l-2 2-2-2v4h-2V8z" fill="white"/>
-  </svg>
-);
+import bancontactLogo from '../assets/bancontact-logo.png';
+import idealLogo from '../assets/ideal-logo.png';
+import paypalLogo from '../assets/paypal-logo.png';
+import klarnaLogo from '../assets/klarna-logo.png';
+import mastercardLogo from '../assets/mastercard-logo.png';
+import visaLogo from '../assets/visa-logo.png';
 
 export default function Footer() {
   const [quickLinksOpen, setQuickLinksOpen] = useState(false);
@@ -223,13 +111,15 @@ export default function Footer() {
           {/* Payment Methods Row - Desktop */}
           <div className="border-t border-gray-800 pt-3 pb-6 text-center">
             <div className="flex flex-wrap justify-center items-center gap-4">
-              <BancontactIcon />
-              <IdealIcon />
-              <PaypalIcon />
-              <KlarnaIcon />
-              <MastercardIcon />
-              <VisaIcon />
-              <AmexIcon />
+              <img src={bancontactLogo} alt="Bancontact logo" className="h-6 opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-200" />
+              <img src={idealLogo} alt="iDEAL logo" className="h-6 opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-200" />
+              <img src={paypalLogo} alt="PayPal logo" className="h-6 opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-200" />
+              <img src={klarnaLogo} alt="Klarna logo" className="h-6 opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-200" />
+              <img src={mastercardLogo} alt="Mastercard logo" className="h-6 opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-200" />
+              <img src={visaLogo} alt="VISA logo" className="h-6 opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-200" />
+              <div className="h-6 w-12 bg-gray-600 rounded flex items-center justify-center opacity-80">
+                <span className="text-xs text-white font-semibold">AMEX</span>
+              </div>
             </div>
           </div>
         </div>
@@ -347,13 +237,15 @@ export default function Footer() {
           {/* Payment Methods Row - Mobile */}
           <div className="border-t border-gray-800 pt-3 pb-3 text-center">
             <div className="flex flex-wrap justify-center items-center gap-3">
-              <BancontactIconMobile />
-              <IdealIconMobile />
-              <PaypalIconMobile />
-              <KlarnaIconMobile />
-              <MastercardIconMobile />
-              <VisaIconMobile />
-              <AmexIconMobile />
+              <img src={bancontactLogo} alt="Bancontact logo" className="h-5 opacity-80" />
+              <img src={idealLogo} alt="iDEAL logo" className="h-5 opacity-80" />
+              <img src={paypalLogo} alt="PayPal logo" className="h-5 opacity-80" />
+              <img src={klarnaLogo} alt="Klarna logo" className="h-5 opacity-80" />
+              <img src={mastercardLogo} alt="Mastercard logo" className="h-5 opacity-80" />
+              <img src={visaLogo} alt="VISA logo" className="h-5 opacity-80" />
+              <div className="h-5 w-10 bg-gray-600 rounded flex items-center justify-center opacity-80">
+                <span className="text-xs text-white font-semibold">AMEX</span>
+              </div>
             </div>
           </div>
         </div>
