@@ -99,15 +99,21 @@ export default function KlassiekeRolgordijnWitPage() {
               <label className="block text-lg font-semibold text-gray-900">
                 Width (cm)
               </label>
-              <select 
-                value={selectedWidth}
-                onChange={(e) => setSelectedWidth(Number(e.target.value))}
-                className="w-full max-w-xs border border-gray-300 rounded-md px-4 py-3 text-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-              >
+              <div className="grid grid-cols-3 gap-2 max-w-md">
                 {widthOptions.map(width => (
-                  <option key={width} value={width}>{width} cm</option>
+                  <button
+                    key={width}
+                    onClick={() => setSelectedWidth(width)}
+                    className={`px-3 py-2 text-sm font-medium rounded-md border transition-colors ${
+                      selectedWidth === width
+                        ? 'bg-primary text-white border-primary'
+                        : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                    }`}
+                  >
+                    {width} cm
+                  </button>
                 ))}
-              </select>
+              </div>
             </div>
 
             {/* Selected Size Display */}
