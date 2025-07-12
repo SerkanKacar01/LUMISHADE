@@ -25,26 +25,26 @@ export default function CartModal({ isOpen, onClose, onCheckout }: CartModalProp
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[95vh] overflow-y-auto w-[95vw] sm:w-full mobile-modal mobile-container">
-        <DialogHeader className="mb-3 sm:mb-6">
-          <DialogTitle className="text-lg sm:text-2xl lg:text-3xl font-bold text-gray-900 mobile-product-title">Winkelwagen</DialogTitle>
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto w-[95vw] sm:w-full">
+        <DialogHeader>
+          <DialogTitle className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">Shopping Cart</DialogTitle>
         </DialogHeader>
 
-        <div className="space-y-2 sm:space-y-4 mb-3 sm:mb-6">
+        <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
           {cart.length === 0 ? (
-            <p className="text-gray-500 text-center py-6 text-sm">Uw winkelwagen is leeg</p>
+            <p className="text-gray-500 text-center py-8">Your cart is empty</p>
           ) : (
             cart.map((item, index) => (
-              <div key={`${item.id}-${item.size}`} className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 bg-gray-50 rounded-lg p-2 sm:p-4 mobile-product-card">
+              <div key={`${item.id}-${item.size}`} className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 bg-gray-50 rounded-lg p-3 sm:p-4">
                 <img 
                   src={item.image} 
                   alt={item.name}
-                  className="w-12 h-12 sm:w-16 sm:h-16 object-cover rounded-lg mobile-product-image"
+                  className="w-16 h-16 sm:w-16 sm:h-16 object-cover rounded-lg"
                 />
                 <div className="flex-1 min-w-0">
-                  <h4 className="font-semibold text-xs sm:text-base mobile-product-title">{item.name}</h4>
-                  <p className="text-xs sm:text-sm text-gray-600">Maat: {item.size}cm</p>
-                  <p className="text-xs sm:text-sm text-gray-600">{formatPrice(item.price)} per stuk</p>
+                  <h4 className="font-semibold text-sm sm:text-base">{item.name}</h4>
+                  <p className="text-xs sm:text-sm text-gray-600">Size: {item.size}cm</p>
+                  <p className="text-xs sm:text-sm text-gray-600">{formatPrice(item.price)} each</p>
                 </div>
                 <div className="flex items-center justify-between w-full sm:w-auto sm:flex-col sm:items-end space-y-2 sm:space-y-3">
                   <div className="flex items-center space-x-2">
@@ -53,7 +53,7 @@ export default function CartModal({ isOpen, onClose, onCheckout }: CartModalProp
                       size="icon"
                       onClick={() => updateQuantity(index, -1)}
                       disabled={item.quantity <= 1}
-                      className="h-8 w-8 sm:h-10 sm:w-10 min-h-[40px] min-w-[40px]"
+                      className="h-8 w-8 sm:h-10 sm:w-10"
                     >
                       <Minus className="h-3 w-3 sm:h-4 sm:w-4" />
                     </Button>
@@ -62,13 +62,13 @@ export default function CartModal({ isOpen, onClose, onCheckout }: CartModalProp
                       variant="outline" 
                       size="icon"
                       onClick={() => updateQuantity(index, 1)}
-                      className="h-8 w-8 sm:h-10 sm:w-10 min-h-[40px] min-w-[40px]"
+                      className="h-8 w-8 sm:h-10 sm:w-10"
                     >
                       <Plus className="h-3 w-3 sm:h-4 sm:w-4" />
                     </Button>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <p className="font-semibold text-xs sm:text-base mobile-product-price">{formatPrice(item.price * item.quantity)}</p>
+                    <p className="font-semibold text-sm sm:text-base">{formatPrice(item.price * item.quantity)}</p>
                     <Button 
                       variant="ghost" 
                       size="sm"
@@ -84,26 +84,26 @@ export default function CartModal({ isOpen, onClose, onCheckout }: CartModalProp
           )}
         </div>
 
-        <div className="border-t pt-3 sm:pt-6">
-          <div className="flex justify-between items-center mb-3 sm:mb-6">
-            <span className="text-base sm:text-xl font-semibold">Totaal:</span>
-            <span className="text-lg sm:text-2xl font-bold text-primary mobile-product-price">{formatPrice(total)}</span>
+        <div className="border-t pt-4 sm:pt-6">
+          <div className="flex justify-between items-center mb-4 sm:mb-6">
+            <span className="text-lg sm:text-xl font-semibold">Total:</span>
+            <span className="text-xl sm:text-2xl font-bold text-primary">{formatPrice(total)}</span>
           </div>
 
-          <div className="flex flex-col sm:grid sm:grid-cols-2 gap-2 sm:gap-4 mobile-stack">
+          <div className="flex flex-col sm:grid sm:grid-cols-2 gap-3 sm:gap-4">
             <Button 
               variant="outline"
               onClick={clearCart}
               disabled={cart.length === 0}
-              className="w-full min-h-[48px] text-sm sm:text-base mobile-button"
+              className="w-full min-h-[48px] text-sm sm:text-base"
             >
-              Wis winkelwagen
+              Clear Cart
             </Button>
             <Button 
               onClick={handleCheckout}
-              className="bg-primary hover:bg-primary/90 mobile-no-hover text-white w-full min-h-[48px] text-sm sm:text-base mobile-button"
+              className="bg-primary hover:bg-primary/90 text-white w-full min-h-[48px] text-sm sm:text-base"
             >
-              Afrekenen
+              Checkout
             </Button>
           </div>
         </div>

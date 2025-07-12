@@ -210,67 +210,67 @@ export default function Footer() {
         </div>
 
         {/* Mobile Layout - Visible only on mobile */}
-        <div className="sm:hidden mobile-container mobile-footer py-4 space-y-2">
+        <div className="sm:hidden py-6 space-y-3">
           {/* Company Logo & Slogan - Centered */}
           <div className="text-center">
-            <h3 className="text-base font-bold mb-2 mobile-footer">LUMISHADÉ</h3>
-            <p className="text-gray-400 text-xs px-2 mobile-footer">
+            <h3 className="text-lg font-bold mb-2">LUMISHADÉ</h3>
+            <p className="text-gray-400 text-sm px-2">
               Premium kant-en-klare raamdecoraties...
             </p>
           </div>
 
-          {/* Contact Info - Compact and stacked */}
+          {/* Contact Info - Compact 2 lines */}
           <div className="text-center space-y-1">
-            <div className="flex flex-col items-center space-y-1 text-xs mobile-footer">
+            <div className="flex justify-center items-center space-x-4 text-sm">
               <div className="flex items-center">
-                <Phone className="w-3 h-3 mr-1" />
+                <Phone className="w-4 h-4 mr-1" />
                 <span>+31 20 123 4567</span>
               </div>
               <div className="flex items-center">
-                <Mail className="w-3 h-3 mr-1" />
+                <Mail className="w-4 h-4 mr-1" />
                 <span>info@sunshadeandco.eu</span>
               </div>
-              <div className="flex items-center">
-                <MapPin className="w-3 h-3 mr-1" />
-                <span>123 Window Street, Amsterdam</span>
-              </div>
+            </div>
+            <div className="flex justify-center items-center text-sm">
+              <MapPin className="w-4 h-4 mr-1" />
+              <span>123 Window Street, Amsterdam</span>
             </div>
           </div>
 
           {/* Quick Links - Collapsible */}
-          <div className="border-t border-gray-800 pt-2">
+          <div className="border-t border-gray-800 pt-3">
             <button
               onClick={() => toggleSection("quickLinks")}
-              className="flex items-center justify-between w-full text-white font-medium py-2 min-h-[40px]"
+              className="flex items-center justify-between w-full text-white font-medium py-2"
             >
-              <span className="text-xs mobile-footer">Snelle koppelingen</span>
+              <span className="text-sm">Snelle koppelingen</span>
               <ChevronDown
-                className={`w-3 h-3 transition-transform ${quickLinksOpen ? "rotate-180" : ""}`}
+                className={`w-4 h-4 transition-transform ${quickLinksOpen ? "rotate-180" : ""}`}
               />
             </button>
             {quickLinksOpen && (
-              <div className="space-y-0 mt-1 pb-1">
+              <div className="space-y-1 mt-2 pb-2">
                 <button
                   onClick={() => scrollToSection("home")}
-                  className="block w-full text-left text-gray-400 hover:text-white transition-colors text-xs py-1 min-h-[32px] mobile-footer"
+                  className="block w-full text-left text-gray-400 hover:text-white transition-colors text-sm py-1"
                 >
                   • Home
                 </button>
                 <button
                   onClick={() => scrollToSection("products")}
-                  className="block w-full text-left text-gray-400 hover:text-white transition-colors text-xs py-1 min-h-[32px] mobile-footer"
+                  className="block w-full text-left text-gray-400 hover:text-white transition-colors text-sm py-1"
                 >
                   • Producten
                 </button>
                 <button
                   onClick={() => scrollToSection("about")}
-                  className="block w-full text-left text-gray-400 hover:text-white transition-colors text-xs py-1 min-h-[32px] mobile-footer"
+                  className="block w-full text-left text-gray-400 hover:text-white transition-colors text-sm py-1"
                 >
                   • Over ons
                 </button>
                 <button
                   onClick={() => scrollToSection("contact")}
-                  className="block w-full text-left text-gray-400 hover:text-white transition-colors text-xs py-1 min-h-[32px] mobile-footer"
+                  className="block w-full text-left text-gray-400 hover:text-white transition-colors text-sm py-1"
                 >
                   • Contact
                 </button>
@@ -279,39 +279,39 @@ export default function Footer() {
           </div>
 
           {/* Legal - Collapsible */}
-          <div className="border-t border-gray-800 pt-2">
+          <div className="border-t border-gray-800 pt-3">
             <button
               onClick={() => toggleSection("legal")}
-              className="flex items-center justify-between w-full text-white font-medium py-2 min-h-[40px]"
+              className="flex items-center justify-between w-full text-white font-medium py-2"
             >
-              <span className="text-xs mobile-footer">Juridisch</span>
+              <span className="text-sm">Juridisch</span>
               <ChevronDown
-                className={`w-3 h-3 transition-transform ${legalOpen ? "rotate-180" : ""}`}
+                className={`w-4 h-4 transition-transform ${legalOpen ? "rotate-180" : ""}`}
               />
             </button>
             {legalOpen && (
-              <div className="space-y-0 mt-1 pb-1">
+              <div className="space-y-1 mt-2 pb-2">
                 <a
                   href="#"
-                  className="block text-gray-400 hover:text-white transition-colors text-xs py-1 min-h-[32px] mobile-footer"
+                  className="block text-gray-400 hover:text-white transition-colors text-sm py-1"
                 >
                   • Privacy beleid
                 </a>
                 <a
                   href="#"
-                  className="block text-gray-400 hover:text-white transition-colors text-xs py-1 min-h-[32px] mobile-footer"
+                  className="block text-gray-400 hover:text-white transition-colors text-sm py-1"
                 >
                   • Algemene voorwaarden
                 </a>
                 <a
                   href="#"
-                  className="block text-gray-400 hover:text-white transition-colors text-xs py-1 min-h-[32px] mobile-footer"
+                  className="block text-gray-400 hover:text-white transition-colors text-sm py-1"
                 >
                   • Retour beleid
                 </a>
                 <a
                   href="#"
-                  className="block text-gray-400 hover:text-white transition-colors text-xs py-1 min-h-[32px] mobile-footer"
+                  className="block text-gray-400 hover:text-white transition-colors text-sm py-1"
                 >
                   • Garantie
                 </a>
@@ -320,50 +320,50 @@ export default function Footer() {
           </div>
 
           {/* Social Icons - Bottom */}
-          <div className="border-t border-gray-800 pt-2">
-            <div className="flex justify-center space-x-4">
-              <Facebook className="w-5 h-5 hover:text-primary cursor-pointer transition-colors min-h-[40px] min-w-[40px] p-2" />
-              <Instagram className="w-5 h-5 hover:text-primary cursor-pointer transition-colors min-h-[40px] min-w-[40px] p-2" />
-            </div>
-          </div>
-
-          {/* Payment Methods Row - Mobile */}
-          <div className="border-t border-gray-800 pt-2 pb-2 text-center">
-            <div className="flex flex-wrap justify-center items-center gap-2">
-              <img
-                src={bancontactLogo}
-                alt="Bancontact logo"
-                className="h-4 opacity-80"
-              />
-              <img
-                src={idealLogo}
-                alt="iDEAL logo"
-                className="h-4 opacity-80"
-              />
-              <img
-                src={paypalLogo}
-                alt="PayPal logo"
-                className="h-4 opacity-80"
-              />
-              <img
-                src={klarnaLogo}
-                alt="Klarna logo"
-                className="h-4 opacity-80"
-              />
-              <img
-                src={mastercardLogo}
-                alt="Mastercard logo"
-                className="h-4 opacity-80"
-              />
-              <img src={visaLogo} alt="VISA logo" className="h-4 opacity-80" />
+          <div className="border-t border-gray-800 pt-3">
+            <div className="flex justify-center space-x-6">
+              <Facebook className="w-6 h-6 hover:text-primary cursor-pointer transition-colors" />
+              <Instagram className="w-6 h-6 hover:text-primary cursor-pointer transition-colors" />
             </div>
           </div>
 
           {/* Copyright - Mobile */}
-          <div className="border-t border-gray-800 pt-2 text-center">
-            <p className="text-xs text-gray-400 mobile-footer">
+          <div className="border-t border-gray-800 pt-3 text-center">
+            <p className="text-xs text-gray-400">
               &copy; 2025 LUMISHADÉ All rights reserved.
             </p>
+          </div>
+
+          {/* Payment Methods Row - Mobile */}
+          <div className="border-t border-gray-800 pt-3 pb-3 text-center">
+            <div className="flex flex-wrap justify-center items-center gap-3">
+              <img
+                src={bancontactLogo}
+                alt="Bancontact logo"
+                className="h-5 opacity-80"
+              />
+              <img
+                src={idealLogo}
+                alt="iDEAL logo"
+                className="h-5 opacity-80"
+              />
+              <img
+                src={paypalLogo}
+                alt="PayPal logo"
+                className="h-5 opacity-80"
+              />
+              <img
+                src={klarnaLogo}
+                alt="Klarna logo"
+                className="h-5 opacity-80"
+              />
+              <img
+                src={mastercardLogo}
+                alt="Mastercard logo"
+                className="h-5 opacity-80"
+              />
+              <img src={visaLogo} alt="VISA logo" className="h-5 opacity-80" />
+            </div>
           </div>
         </div>
       </div>

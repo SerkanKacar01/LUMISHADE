@@ -65,15 +65,15 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
   if (showConfirmation) {
     return (
       <Dialog open={isOpen} onOpenChange={handleCloseConfirmation}>
-        <DialogContent className="max-w-md w-[95vw] sm:w-full mobile-modal mobile-container">
-          <div className="text-center py-3 sm:py-6">
-            <div className="w-10 h-10 sm:w-16 sm:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4">
-              <Check className="text-green-600 w-5 h-5 sm:w-8 sm:h-8" />
+        <DialogContent className="max-w-md w-[95vw] sm:w-full">
+          <div className="text-center py-4 sm:py-6">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <Check className="text-green-600 w-6 h-6 sm:w-8 sm:h-8" />
             </div>
-            <h2 className="text-lg sm:text-2xl font-bold text-gray-900 mb-2 mobile-product-title">Bestelling bevestigd!</h2>
-            <p className="text-gray-600 mb-3 sm:mb-6 text-xs sm:text-base mobile-product-description">Bedankt voor uw bestelling. We sturen u spoedig een bevestigingsmail.</p>
-            <Button onClick={handleCloseConfirmation} className="bg-primary hover:bg-primary/90 mobile-no-hover text-white min-h-[48px] text-base mobile-button">
-              Verder winkelen
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Order Confirmed!</h2>
+            <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">Thank you for your order. We'll send you a confirmation email shortly.</p>
+            <Button onClick={handleCloseConfirmation} className="bg-primary hover:bg-primary/90 text-white min-h-[48px] text-base">
+              Continue Shopping
             </Button>
           </div>
         </DialogContent>

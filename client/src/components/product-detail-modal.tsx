@@ -38,33 +38,33 @@ export default function ProductDetailModal({ isOpen, onClose, productId }: Produ
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[95vh] overflow-y-auto w-[95vw] sm:w-full mobile-modal mobile-container">
-        <DialogHeader className="mb-3 sm:mb-6">
-          <DialogTitle className="text-lg sm:text-2xl lg:text-3xl font-bold text-gray-900 mobile-product-title">{product.name}</DialogTitle>
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto w-[95vw] sm:w-full">
+        <DialogHeader>
+          <DialogTitle className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">{product.name}</DialogTitle>
         </DialogHeader>
 
-        <div className="grid lg:grid-cols-2 gap-4 sm:gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
           <div>
             <img 
               src={product.image} 
               alt={product.name}
-              className="w-full rounded-xl shadow-lg mobile-product-image max-h-[250px] object-cover"
+              className="w-full rounded-xl shadow-lg"
             />
           </div>
 
-          <div className="mobile-stack">
-            <div className="mb-3 sm:mb-6">
-              <span className="text-lg sm:text-3xl lg:text-4xl font-bold text-primary mobile-product-price">{formatPrice(product.price)}</span>
-              <span className="text-gray-500 ml-2 text-xs sm:text-base">inc. VAT</span>
+          <div>
+            <div className="mb-4 sm:mb-6">
+              <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary">{formatPrice(product.price)}</span>
+              <span className="text-gray-500 ml-2 text-sm sm:text-base">inc. VAT</span>
             </div>
 
-            <p className="text-gray-600 mb-3 sm:mb-6 text-xs sm:text-base leading-relaxed mobile-product-description max-h-[60px] overflow-hidden">{product.description}</p>
+            <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed">{product.description}</p>
 
-            <div className="mb-3 sm:mb-6 mobile-form-field">
-              <label className="block text-sm sm:text-base font-medium text-gray-700 mb-2 mobile-form-label">Maat</label>
+            <div className="mb-4 sm:mb-6">
+              <label className="block text-sm sm:text-base font-medium text-gray-700 mb-2">Size</label>
               <Select value={selectedSize} onValueChange={setSelectedSize}>
-                <SelectTrigger className="w-full min-h-[48px] text-base mobile-form-input">
-                  <SelectValue placeholder="Selecteer maat" />
+                <SelectTrigger className="w-full min-h-[48px] text-base">
+                  <SelectValue placeholder="Select size" />
                 </SelectTrigger>
                 <SelectContent>
                   {product.sizes.map(size => (
@@ -76,15 +76,15 @@ export default function ProductDetailModal({ isOpen, onClose, productId }: Produ
               </Select>
             </div>
 
-            <div className="mb-4 sm:mb-8 mobile-form-field">
-              <label className="block text-sm sm:text-base font-medium text-gray-700 mb-2 mobile-form-label">Aantal</label>
-              <div className="flex items-center justify-center space-x-3">
+            <div className="mb-6 sm:mb-8">
+              <label className="block text-sm sm:text-base font-medium text-gray-700 mb-2">Quantity</label>
+              <div className="flex items-center space-x-3">
                 <Button 
                   variant="outline" 
                   size="icon"
                   onClick={decreaseQuantity}
                   disabled={quantity <= 1}
-                  className="h-12 w-12 min-h-[44px] min-w-[44px]"
+                  className="h-10 w-10 sm:h-12 sm:w-12"
                 >
                   <Minus className="h-4 w-4" />
                 </Button>
@@ -93,7 +93,7 @@ export default function ProductDetailModal({ isOpen, onClose, productId }: Produ
                   variant="outline" 
                   size="icon"
                   onClick={increaseQuantity}
-                  className="h-12 w-12 min-h-[44px] min-w-[44px]"
+                  className="h-10 w-10 sm:h-12 sm:w-12"
                 >
                   <Plus className="h-4 w-4" />
                 </Button>
@@ -102,14 +102,14 @@ export default function ProductDetailModal({ isOpen, onClose, productId }: Produ
 
             <Button 
               onClick={handleAddToCart}
-              className="w-full bg-primary hover:bg-primary/90 mobile-no-hover text-white py-3 sm:py-4 px-6 text-base sm:text-lg font-semibold mb-3 sm:mb-6 min-h-[48px] mobile-button"
+              className="w-full bg-primary hover:bg-primary/90 text-white py-3 sm:py-4 px-6 text-base sm:text-lg font-semibold mb-4 sm:mb-6 min-h-[48px]"
             >
-              Toevoegen aan winkelwagen
+              Add to Cart
             </Button>
 
-            <div className="bg-gray-50 rounded-lg p-2 sm:p-4">
-              <h3 className="font-semibold mb-2 text-sm sm:text-base">Product kenmerken:</h3>
-              <ul className="text-xs sm:text-sm text-gray-600 space-y-1 max-h-[120px] overflow-y-auto">
+            <div className="bg-gray-50 rounded-lg p-3 sm:p-4">
+              <h3 className="font-semibold mb-2 text-sm sm:text-base">Product Features:</h3>
+              <ul className="text-xs sm:text-sm text-gray-600 space-y-1">
                 {product.features.map((feature, index) => (
                   <li key={index}>• {feature}</li>
                 ))}
