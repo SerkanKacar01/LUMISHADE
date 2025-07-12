@@ -1,0 +1,76 @@
+✅ STEP-BY-STEP INSTRUCTION FOR REPLIT – IMPROVEMENT POINTS 1 TO 5
+
+⸻
+
+🔧 1. Replace currency symbol from £ to €
+
+Instruction:
+
+Please update the entire webshop UI to display prices in euros (€) instead of pounds (£).
+	•	Replace all hardcoded £ symbols with €.
+	•	Make sure the decimal separator is replaced with a comma (e.g. €129,99 instead of £129.99).
+	•	Apply this change to:
+	•	Product listing cards
+	•	Product detail pages
+	•	Cart overview and checkout pages
+	•	Order confirmation messages
+
+⸻
+
+🔧 2. Improve Call-To-Action (CTA) buttons
+
+Instruction:
+
+Please enhance the Shop Now and View Catalogue buttons on the homepage by:
+	•	Adding a hover effect (e.g. slight scale-up or background color change)
+	•	Including a small icon (shopping cart for Shop Now, or an eye/arrow for View Catalogue)
+	•	Making the buttons slightly larger and center-aligned on mobile view
+
+Optional icon sources: Lucide Icons or Font Awesome
+
+⸻
+
+🔧 3. Ensure product detail pages include key elements
+
+Instruction:
+
+Please confirm that each product detail page (/products/[slug]) includes:
+	•	A large product image
+	•	Full description (materials, dimensions, usage, features)
+	•	Optional dropdowns or selectors for dimensions if applicable
+	•	A clearly visible “Add to Cart” button
+	•	Price shown in euros with comma separator (see step 1)
+
+If these elements are not present yet, please implement them accordingly.
+
+⸻
+
+🔧 4. Add a clean footer to all pages
+
+Instruction:
+
+Please add a consistent footer visible on every page with the following sections:
+	•	Company name + short tagline
+	•	Navigation links: Home, Products, About, Contact
+	•	Legal links: Privacy Policy, Terms & Conditions
+	•	Contact info: Email, address (placeholder), phone (optional)
+	•	Social icons (optional: Facebook, Instagram icons with links)
+The design should match the overall minimalist look and be fully responsive.
+
+⸻
+
+🔧 5. Test and fix cart & checkout functionality
+
+Instruction:
+
+Please perform a full test of the cart and checkout system:
+	•	Add/remove items in the cart → ensure localStorage is working
+	•	Cart should persist after page refresh
+	•	Cart total must recalculate correctly
+	•	On checkout, the form should:
+	•	Accept required fields (name, email, address)
+	•	Show a success message or redirect to a confirmation page
+	•	Temporarily simulate payment (test button or Stripe test mode)
+	•	Clear cart after successful order
+
+If any part does not work as described, please fix it accordingly.
