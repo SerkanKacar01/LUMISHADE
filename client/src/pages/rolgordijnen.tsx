@@ -6,7 +6,7 @@ import CartModal from "@/components/cart-modal";
 import CheckoutModal from "@/components/checkout-modal";
 import { getProductsByCategoryAndFabricType } from "@/data/products";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Plus, Minus } from "lucide-react";
 import { Link } from "wouter";
 
 export default function RolgordijnenPage() {
@@ -55,8 +55,135 @@ export default function RolgordijnenPage() {
           </div>
         </div>
 
+        {/* Product Sections */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            {/* Light-filtering Roller Blinds Section */}
+            <div className="mb-16">
+              <h2 className="text-2xl font-semibold text-gray-900 mb-8">
+                Lichtdoorlatende Rolgordijnen
+              </h2>
+              
+              <div className="bg-white rounded-lg shadow-sm p-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div className="aspect-w-16 aspect-h-12">
+                    <img
+                      src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                      alt="Klassieke Rolgordijn"
+                      className="w-full h-48 object-cover rounded-lg"
+                    />
+                  </div>
+                  
+                  <div className="flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                        Klassieke Rolgordijn
+                      </h3>
+                      <p className="text-gray-600 mb-4">
+                        Elegant and simple roller blind for any room
+                      </p>
+                      <div className="text-2xl font-bold text-primary mb-4">
+                        €45.99
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Afmetingen
+                        </label>
+                        <select className="w-full border border-gray-300 rounded-md px-3 py-2">
+                          <option>80×150 cm</option>
+                          <option>100×150 cm</option>
+                          <option>120×180 cm</option>
+                        </select>
+                      </div>
+                      
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <button className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50">
+                            <Minus className="h-4 w-4" />
+                          </button>
+                          <span className="font-medium">1</span>
+                          <button className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50">
+                            <Plus className="h-4 w-4" />
+                          </button>
+                        </div>
+                        
+                        <Button className="flex-1 ml-4">
+                          Toevoegen aan winkelwagen
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-
+            {/* Blackout Roller Blinds Section */}
+            <div className="mb-8">
+              <h2 className="text-2xl font-semibold text-gray-900 mb-8">
+                Verduisterende Rolgordijnen
+              </h2>
+              
+              <div className="bg-white rounded-lg shadow-sm p-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div className="aspect-w-16 aspect-h-12">
+                    <img
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+                      alt="Verduisterende Rolgordijn"
+                      className="w-full h-48 object-cover rounded-lg"
+                    />
+                  </div>
+                  
+                  <div className="flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                        Verduisterende Rolgordijn
+                      </h3>
+                      <p className="text-gray-600 mb-4">
+                        100% blackout for perfect darkness
+                      </p>
+                      <div className="text-2xl font-bold text-primary mb-4">
+                        €69.99
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Afmetingen
+                        </label>
+                        <select className="w-full border border-gray-300 rounded-md px-3 py-2">
+                          <option>80×150 cm</option>
+                          <option>100×150 cm</option>
+                          <option>120×180 cm</option>
+                        </select>
+                      </div>
+                      
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <button className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50">
+                            <Minus className="h-4 w-4" />
+                          </button>
+                          <span className="font-medium">1</span>
+                          <button className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50">
+                            <Plus className="h-4 w-4" />
+                          </button>
+                        </div>
+                        
+                        <Button className="flex-1 ml-4">
+                          Toevoegen aan winkelwagen
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
       </main>
 
