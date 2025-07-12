@@ -5,7 +5,7 @@ export interface Product {
   image: string;
   description: string;
   shortDescription: string;
-  category: 'blinds' | 'sunshades' | 'curtains' | 'screens';
+  category: 'blinds' | 'sunshades' | 'curtains' | 'screens' | 'rolgordijnen' | 'duo-rolgordijnen';
   features: string[];
   sizes: string[];
 }
@@ -98,6 +98,74 @@ export const products: Product[] = [
     category: 'blinds',
     features: ['Perfect for large windows', 'Easy light control', 'Professional appearance', 'Durable materials', 'Multiple colours'],
     sizes: ['100x150', '120x180', '140x200', '160x220']
+  },
+  // Rolgordijnen
+  {
+    id: 'classic-rolgordijn',
+    name: 'Klassieke Rolgordijn',
+    price: 45.99,
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600',
+    shortDescription: 'Eenvoudige en elegante rolgordijn voor elke ruimte.',
+    description: 'Onze klassieke rolgordijn biedt een tijdloze stijl met uitstekende lichtsturing. Perfect voor woonkamers, slaapkamers en kantoren.',
+    category: 'rolgordijnen',
+    features: ['Eenvoudige bediening', 'Duurzame materialen', 'Makkelijke installatie', 'Verschillende kleuren', 'Kindveilige ketting'],
+    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220']
+  },
+  {
+    id: 'blackout-rolgordijn',
+    name: 'Verduisterende Rolgordijn',
+    price: 69.99,
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600',
+    shortDescription: '100% lichtdicht voor perfecte nachtrust.',
+    description: 'Verduisterende rolgordijn die 100% van het licht blokkeert. Ideaal voor slaapkamers, kinderkamers en thuisbioscopen.',
+    category: 'rolgordijnen',
+    features: ['100% lichtdicht', 'Thermische isolatie', 'Geluiddemping', 'Kindveilige bediening', 'Verschillende maten'],
+    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220']
+  },
+  {
+    id: 'thermal-rolgordijn',
+    name: 'Thermische Rolgordijn',
+    price: 59.99,
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600',
+    shortDescription: 'Energiebesparend met thermische isolatie.',
+    description: 'Thermische rolgordijn die helpt bij energiebesparing door warmte binnen te houden in de winter en buiten in de zomer.',
+    category: 'rolgordijnen',
+    features: ['Energiebesparend', 'Thermische isolatie', 'UV-bescherming', 'Verschillende kleuren', 'Gemakkelijke reiniging'],
+    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220']
+  },
+  // Duo-rolgordijnen
+  {
+    id: 'zebra-duo-rolgordijn',
+    name: 'Zebra Duo Rolgordijn',
+    price: 89.99,
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600',
+    shortDescription: 'Flexibele lichtsturing met moderne zebra-patroon.',
+    description: 'Duo rolgordijn met zebra-patroon dat flexibele lichtsturing biedt. Schuif de stroken langs elkaar voor meer of minder licht.',
+    category: 'duo-rolgordijnen',
+    features: ['Flexibele lichtsturing', 'Modern zebra-patroon', 'Privacy en licht combinatie', 'Verschillende kleuren', 'Eenvoudige bediening'],
+    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220']
+  },
+  {
+    id: 'day-night-duo-rolgordijn',
+    name: 'Dag & Nacht Duo Rolgordijn',
+    price: 94.99,
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600',
+    shortDescription: 'Dag en nacht functionaliteit in één gordijn.',
+    description: 'Innovatieve duo rolgordijn met dag en nacht functionaliteit. Perfect voor flexibele privacy en lichtcontrole.',
+    category: 'duo-rolgordijnen',
+    features: ['Dag en nacht functie', 'Optimale privacy', 'Flexibele lichtcontrole', 'Elegante uitstraling', 'Verschillende stijlen'],
+    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220']
+  },
+  {
+    id: 'premium-duo-rolgordijn',
+    name: 'Premium Duo Rolgordijn',
+    price: 109.99,
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600',
+    shortDescription: 'Luxe duo rolgordijn met premium afwerking.',
+    description: 'Premium duo rolgordijn met luxe afwerking en superieure kwaliteit. Biedt perfecte balans tussen stijl en functionaliteit.',
+    category: 'duo-rolgordijnen',
+    features: ['Premium kwaliteit', 'Luxe afwerking', 'Superieure materialen', 'Lange levensduur', 'Professionele installatie'],
+    sizes: ['80x150', '100x150', '120x180', '140x200', '160x220']
   }
 ];
 
