@@ -65,14 +65,14 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
   if (showConfirmation) {
     return (
       <Dialog open={isOpen} onOpenChange={handleCloseConfirmation}>
-        <DialogContent className="max-w-md">
-          <div className="text-center py-6">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Check className="text-green-600 w-8 h-8" />
+        <DialogContent className="max-w-md w-[95vw] sm:w-full">
+          <div className="text-center py-4 sm:py-6">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <Check className="text-green-600 w-6 h-6 sm:w-8 sm:h-8" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Order Confirmed!</h2>
-            <p className="text-gray-600 mb-6">Thank you for your order. We'll send you a confirmation email shortly.</p>
-            <Button onClick={handleCloseConfirmation} className="bg-primary hover:bg-primary/90 text-white">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Order Confirmed!</h2>
+            <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">Thank you for your order. We'll send you a confirmation email shortly.</p>
+            <Button onClick={handleCloseConfirmation} className="bg-primary hover:bg-primary/90 text-white min-h-[48px] text-base">
               Continue Shopping
             </Button>
           </div>
@@ -83,15 +83,15 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto w-[95vw] sm:w-full">
         <DialogHeader>
-          <DialogTitle className="text-3xl font-bold text-gray-900 mb-6">Checkout</DialogTitle>
+          <DialogTitle className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">Checkout</DialogTitle>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-6">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
             <div>
-              <Label htmlFor="fullName">Full Name *</Label>
+              <Label htmlFor="fullName" className="text-sm sm:text-base">Full Name *</Label>
               <Input
                 id="fullName"
                 name="fullName"
@@ -99,11 +99,11 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                 required
                 value={formData.fullName}
                 onChange={handleInputChange}
-                className="mt-1"
+                className="mt-1 min-h-[48px] text-base"
               />
             </div>
             <div>
-              <Label htmlFor="email">Email Address *</Label>
+              <Label htmlFor="email" className="text-sm sm:text-base">Email Address *</Label>
               <Input
                 id="email"
                 name="email"
@@ -111,13 +111,13 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                 required
                 value={formData.email}
                 onChange={handleInputChange}
-                className="mt-1"
+                className="mt-1 min-h-[48px] text-base"
               />
             </div>
           </div>
 
           <div>
-            <Label htmlFor="address">Address *</Label>
+            <Label htmlFor="address" className="text-sm sm:text-base">Address *</Label>
             <Input
               id="address"
               name="address"
@@ -125,13 +125,13 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
               required
               value={formData.address}
               onChange={handleInputChange}
-              className="mt-1"
+              className="mt-1 min-h-[48px] text-base"
             />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
             <div>
-              <Label htmlFor="city">City *</Label>
+              <Label htmlFor="city" className="text-sm sm:text-base">City *</Label>
               <Input
                 id="city"
                 name="city"
@@ -139,11 +139,11 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                 required
                 value={formData.city}
                 onChange={handleInputChange}
-                className="mt-1"
+                className="mt-1 min-h-[48px] text-base"
               />
             </div>
             <div>
-              <Label htmlFor="postalCode">Postal Code *</Label>
+              <Label htmlFor="postalCode" className="text-sm sm:text-base">Postal Code *</Label>
               <Input
                 id="postalCode"
                 name="postalCode"
@@ -151,13 +151,13 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                 required
                 value={formData.postalCode}
                 onChange={handleInputChange}
-                className="mt-1"
+                className="mt-1 min-h-[48px] text-base"
               />
             </div>
           </div>
 
           <div>
-            <Label htmlFor="phone">Phone Number *</Label>
+            <Label htmlFor="phone" className="text-sm sm:text-base">Phone Number *</Label>
             <Input
               id="phone"
               name="phone"
@@ -165,21 +165,21 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
               required
               value={formData.phone}
               onChange={handleInputChange}
-              className="mt-1"
+              className="mt-1 min-h-[48px] text-base"
             />
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-4">
-            <h3 className="font-semibold mb-2">Order Summary</h3>
-            <div className="text-sm text-gray-600 space-y-1">
+          <div className="bg-gray-50 rounded-lg p-3 sm:p-4">
+            <h3 className="font-semibold mb-2 text-sm sm:text-base">Order Summary</h3>
+            <div className="text-xs sm:text-sm text-gray-600 space-y-1">
               {cart.map((item, index) => (
-                <div key={index} className="flex justify-between py-1">
-                  <span>{item.name} ({item.size}cm) x {item.quantity}</span>
-                  <span>{formatPrice(item.price * item.quantity)}</span>
+                <div key={index} className="flex justify-between py-1 text-xs sm:text-sm">
+                  <span className="flex-1 pr-2">{item.name} ({item.size}cm) x {item.quantity}</span>
+                  <span className="font-medium">{formatPrice(item.price * item.quantity)}</span>
                 </div>
               ))}
               <div className="border-t pt-2 mt-2">
-                <div className="flex justify-between font-semibold">
+                <div className="flex justify-between font-semibold text-sm sm:text-base">
                   <span>Total:</span>
                   <span>{formatPrice(total)}</span>
                 </div>
@@ -190,7 +190,7 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
           <Button 
             type="submit" 
             disabled={isSubmitting}
-            className="w-full bg-primary hover:bg-primary/90 text-white py-3 px-6 text-lg font-semibold"
+            className="w-full bg-primary hover:bg-primary/90 text-white py-3 sm:py-4 px-6 text-base sm:text-lg font-semibold min-h-[48px]"
           >
             {isSubmitting ? 'Processing...' : 'Place Order'}
           </Button>
