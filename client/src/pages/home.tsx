@@ -1,5 +1,6 @@
 import Header from "@/components/header";
 import Hero from "@/components/hero";
+import IconBenefitsStrip from "@/components/ui/icon-benefits-strip";
 import ProductGrid from "@/components/product-grid";
 import WhyChooseUs from "@/components/why-choose-us";
 import Footer from "@/components/footer";
@@ -12,6 +13,7 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <Header />
       <Hero />
+      <IconBenefitsStrip />
       <ProductGrid />
       <WhyChooseUs />
       <Footer />
