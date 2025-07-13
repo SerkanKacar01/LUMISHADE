@@ -1,28 +1,25 @@
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { products, getProductsByCategory } from '@/data/products';
-import { formatPrice } from '@/lib/utils';
+import { Link } from 'wouter';
 
 interface ProductGridProps {
   onProductClick?: (productId: string) => void;
 }
 
 export default function ProductGrid({ onProductClick }: ProductGridProps) {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const filteredProducts = getProductsByCategory(selectedCategory);
-
   const categories = [
-    { id: 'all', label: 'All Products' },
-    { id: 'blinds', label: 'Blinds' },
-    { id: 'sunshades', label: 'Sunshades' },
-    { id: 'curtains', label: 'Curtains' },
-    { id: 'screens', label: 'Screens' }
+    { 
+      id: 'rolgordijnen', 
+      label: 'Rolgordijnen',
+      icon: '🪟',
+      link: '/rolgordijnen/lichtdoorlatend'
+    },
+    { 
+      id: 'duo-rolgordijnen', 
+      label: 'Duo-Rolgordijnen',
+      icon: '🎚️',
+      link: '/duo-rolgordijnen'
+    }
   ];
-
-  const handleCategoryChange = (category: string) => {
-    setSelectedCategory(category);
-  };
 
   return (
     <section id="products" className="py-20 bg-white">
@@ -34,50 +31,23 @@ export default function ProductGrid({ onProductClick }: ProductGridProps) {
           </p>
         </div>
 
-        {/* Product Filter */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-2">
-          {categories.map((category) => (
-            <Button
-              key={category.id}
-              variant={selectedCategory === category.id ? "default" : "outline"}
-              onClick={() => handleCategoryChange(category.id)}
-              className={`px-3 sm:px-6 py-2 text-sm sm:text-base rounded-full font-medium min-h-[44px] ${
-                selectedCategory === category.id
-                  ? 'bg-primary text-white hover:bg-primary/90'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-            >
-              {category.label}
-            </Button>
-          ))}
-        </div>
-
-        {/* Product Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6 lg:gap-8">
-          {filteredProducts.map((product) => (
-            <Card key={product.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="aspect-[4/3] relative">
-                <img 
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <CardContent className="p-2 md:p-4 lg:p-6">
-                <h3 className="font-semibold text-sm md:text-base lg:text-lg mb-1 md:mb-2 leading-tight line-clamp-2">{product.name}</h3>
-                <p className="text-gray-600 text-xs md:text-sm mb-2 md:mb-3 lg:mb-4 line-clamp-2">{product.shortDescription}</p>
-                <div className="flex flex-col gap-2 md:gap-3">
-                  <span className="text-base md:text-xl lg:text-2xl font-bold text-primary">{formatPrice(product.price)}</span>
-                  <Button 
-                    onClick={() => onProductClick?.(product.id)}
-                    className="bg-primary hover:bg-primary/90 text-white w-full text-xs md:text-sm lg:text-base py-2 md:py-3 min-h-[36px] md:min-h-[44px]"
-                  >
-                    View Details
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+        {/* Product Category Navigation */}
+        <div className="mb-8 sm:mb-12">
+          <h3 className="text-2xl font-semibold text-gray-900 text-center mb-8">
+            Select Product Category
+          </h3>
+          <div className="max-w-2xl mx-auto space-y-4">
+            {categories.map((category) => (
+              <Link key={category.id} href={category.link}>
+                <Button
+                  className="w-full bg-primary hover:bg-primary/90 text-white py-4 sm:py-6 text-lg sm:text-xl font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 min-h-[44px] sm:min-h-[56px] flex items-center justify-center gap-3"
+                >
+                  <span className="text-2xl">{category.icon}</span>
+                  {category.label}
+                </Button>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>
