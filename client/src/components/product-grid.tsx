@@ -10,13 +10,11 @@ export default function ProductGrid({ onProductClick }: ProductGridProps) {
     {
       id: "rolgordijnen",
       label: "Rolgordijnen",
-      icon: "🪟",
       link: "/products/rolgordijnen",
     },
     {
       id: "duo-rolgordijnen",
       label: "Duo-Rolgordijnen",
-      icon: "🎚️",
       link: "/products/duo-rolgordijnen",
     },
   ];
@@ -50,39 +48,15 @@ export default function ProductGrid({ onProductClick }: ProductGridProps) {
               {categories.map((category) => (
                 <Link key={category.id} href={category.link} className="flex-1">
                   <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 sm:p-8 border border-gray-100 hover:border-primary/20 transform hover:-translate-y-1 cursor-pointer">
-                    <div className="flex items-center gap-4">
-                      <div className="flex-shrink-0">
-                        <span className="text-3xl sm:text-4xl group-hover:scale-110 transition-transform duration-300">
-                          {category.icon}
-                        </span>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h4 className="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">
-                          {category.label}
-                        </h4>
-                        <p className="text-sm sm:text-base text-gray-600 mt-1 group-hover:text-gray-800 transition-colors duration-300">
-                          {category.id === "rolgordijnen"
-                            ? "Klassieke tot Design rolgordijnen voor elke ruimte"
-                            : "Voor een verfijnd spel van licht en schaduw"}
-                        </p>
-                      </div>
-                      <div className="flex-shrink-0">
-                        <div className="w-8 h-8 rounded-full bg-primary/10 group-hover:bg-primary group-hover:text-white flex items-center justify-center transition-all duration-300">
-                          <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M9 5l7 7-7 7"
-                            />
-                          </svg>
-                        </div>
-                      </div>
+                    <div className="text-center">
+                      <h4 className="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">
+                        {category.label}
+                      </h4>
+                      <p className="text-sm sm:text-base text-gray-600 mt-1 group-hover:text-gray-800 transition-colors duration-300">
+                        {category.id === "rolgordijnen"
+                          ? "Klassieke tot Design rolgordijnen voor elke ruimte"
+                          : "Voor een verfijnd spel van licht en schaduw"}
+                      </p>
                     </div>
                   </div>
                 </Link>
