@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowLeft, Search } from "lucide-react";
 import { Link } from "wouter";
+import { classicWhitePrices, getAvailableWidths, getPriceForWidth, formatSizeString } from "@/data/prices/klassieke-wit";
 
 export default function KlassiekeRolgordijnWitPage() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -25,33 +26,41 @@ export default function KlassiekeRolgordijnWitPage() {
     setIsCheckoutOpen(true);
   };
 
+  // Get current price based on selected width
+  const currentPrice = getPriceForWidth(selectedWidth);
+  const totalPrice = currentPrice * quantity;
+
   const handleAddToCart = () => {
     console.log("Adding to cart:", {
       product: "Klassieke Rolgordijn Wit",
       quantity,
       operatingSide,
-      size: `${selectedWidth} cm x 210 cm`,
-      price: 45.99
+      size: formatSizeString(selectedWidth),
+      unitPrice: currentPrice,
+      totalPrice: totalPrice
     });
   };
 
-  // Generate width options from 40 to 280 cm in 5 cm increments
-  const widthOptions = Array.from({ length: ((280 - 40) / 5 + 1) }, (_, i) => 40 + i * 5);
+  // Use available widths from pricing configuration
+  const widthOptions = getAvailableWidths();
 
   // Handle search functionality
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const searchValue = parseInt(searchWidth);
-    if (searchValue >= 40 && searchValue <= 280) {
-      // Round to nearest 5cm increment
-      const roundedWidth = Math.round(searchValue / 5) * 5;
-      if (widthOptions.includes(roundedWidth)) {
-        setSelectedWidth(roundedWidth);
+    if (!isNaN(searchValue)) {
+      // Find closest available width
+      const closestWidth = widthOptions.reduce((prev, curr) => 
+        Math.abs(curr - searchValue) < Math.abs(prev - searchValue) ? curr : prev
+      );
+      
+      if (widthOptions.includes(closestWidth)) {
+        setSelectedWidth(closestWidth);
         setSearchWidth("");
         
         // Scroll selected button into view
         setTimeout(() => {
-          const selectedButton = document.querySelector(`[data-width="${roundedWidth}"]`);
+          const selectedButton = document.querySelector(`[data-width="${closestWidth}"]`);
           if (selectedButton) {
             selectedButton.scrollIntoView({ 
               behavior: 'smooth', 
@@ -109,8 +118,15 @@ export default function KlassiekeRolgordijnWitPage() {
                 />
               </div>
               
-              <div className="text-3xl font-bold text-primary">
-                €45.99
+              <div className="space-y-2">
+                <div className="text-3xl font-bold text-primary">
+                  €{currentPrice.toFixed(2)}
+                </div>
+                {quantity > 1 && (
+                  <div className="text-lg text-gray-600">
+                    {quantity} × €{currentPrice.toFixed(2)} = €{totalPrice.toFixed(2)}
+                  </div>
+                )}
               </div>
             </div>
 
@@ -143,8 +159,7 @@ export default function KlassiekeRolgordijnWitPage() {
                   <Input
                     type="number"
                     min="40"
-                    max="280"
-                    step="5"
+                    max="200"
                     placeholder="Jump to width (e.g. 150)"
                     value={searchWidth}
                     onChange={(e) => setSearchWidth(e.target.value)}
@@ -166,13 +181,16 @@ export default function KlassiekeRolgordijnWitPage() {
                         key={width}
                         data-width={width}
                         onClick={() => setSelectedWidth(width)}
-                        className={`width-button-consistent flex-shrink-0 min-w-[60px] md:min-w-[70px] px-3 md:px-4 py-2 text-sm md:text-base font-medium rounded-lg border transition-all duration-200 touch-target ${
+                        className={`width-button-consistent flex-shrink-0 min-w-[80px] md:min-w-[90px] px-3 md:px-4 py-2 text-sm md:text-base font-medium rounded-lg border transition-all duration-200 touch-target ${
                           selectedWidth === width
                             ? 'selected bg-primary text-white border-primary shadow-lg'
                             : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:border-gray-400 hover:shadow-md active:scale-95'
                         }`}
                       >
-                        {width}
+                        <div className="flex flex-col items-center">
+                          <span>{width}cm</span>
+                          <span className="text-xs opacity-75">€{getPriceForWidth(width).toFixed(2)}</span>
+                        </div>
                       </button>
                     ))}
                   </div>
@@ -212,7 +230,7 @@ export default function KlassiekeRolgordijnWitPage() {
                 Selected size
               </label>
               <div className="text-lg text-gray-700 bg-gray-50 px-4 py-3 rounded-md border">
-                {selectedWidth} cm x 210 cm
+                {formatSizeString(selectedWidth)}
               </div>
             </div>
 
