@@ -90,19 +90,36 @@ export default function Header({ onCartClick }: HeaderProps) {
           </div>
 
           <div className="flex items-center space-x-2 sm:space-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="relative min-h-[44px] min-w-[44px]"
-              onClick={onCartClick}
-            >
-              <ShoppingCart className="h-5 w-5 sm:h-6 sm:w-6" />
-              {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-primary text-white rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs font-semibold">
-                  {totalItems}
-                </span>
-              )}
-            </Button>
+            {onCartClick ? (
+              <Button
+                variant="ghost"
+                size="icon"
+                className="relative min-h-[44px] min-w-[44px]"
+                onClick={onCartClick}
+              >
+                <ShoppingCart className="h-5 w-5 sm:h-6 sm:w-6" />
+                {totalItems > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-primary text-white rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs font-semibold">
+                    {totalItems}
+                  </span>
+                )}
+              </Button>
+            ) : (
+              <Link to="/cart">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="relative min-h-[44px] min-w-[44px]"
+                >
+                  <ShoppingCart className="h-5 w-5 sm:h-6 sm:w-6" />
+                  {totalItems > 0 && (
+                    <span className="absolute -top-1 -right-1 bg-primary text-white rounded-full w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-xs font-semibold">
+                      {totalItems}
+                    </span>
+                  )}
+                </Button>
+              </Link>
+            )}
             <Button
               variant="ghost"
               size="icon"

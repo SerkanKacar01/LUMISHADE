@@ -43,7 +43,13 @@ export default function CartModal({ isOpen, onClose, onCheckout }: CartModalProp
                 />
                 <div className="flex-1 min-w-0">
                   <h4 className="font-semibold text-sm sm:text-base">{item.name}</h4>
-                  <p className="text-xs sm:text-sm text-gray-600">Size: {item.size}cm</p>
+                  <p className="text-xs sm:text-sm text-gray-600">Size: {item.dimensions || item.size}</p>
+                  {item.operatingSide && (
+                    <p className="text-xs sm:text-sm text-gray-600">Side: {item.operatingSide}</p>
+                  )}
+                  {item.color && (
+                    <p className="text-xs sm:text-sm text-gray-600">Color: {item.color}</p>
+                  )}
                   <p className="text-xs sm:text-sm text-gray-600">{formatPrice(item.price)} each</p>
                 </div>
                 <div className="flex items-center justify-between w-full sm:w-auto sm:flex-col sm:items-end space-y-2 sm:space-y-3">

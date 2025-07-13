@@ -12,6 +12,7 @@ import RolgordijnenVerduisterendPage from "@/pages/rolgordijnen/verduisterend";
 import DuoRolgordijnenLichtdoorlatendPage from "@/pages/duo-rolgordijnen/lichtdoorlatend";
 import DuoRolgordijnenVerduisterendPage from "@/pages/duo-rolgordijnen/verduisterend";
 import KlassiekeRolgordijnWitPage from "@/pages/rolgordijnen/lichtdoorlatend/klassieke-rolgordijn-wit";
+import CartPage from "@/pages/cart";
 
 function Router() {
   return (
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/duo-rolgordijnen/lichtdoorlatend" component={DuoRolgordijnenLichtdoorlatendPage} />
       <Route path="/duo-rolgordijnen/verduisterend" component={DuoRolgordijnenVerduisterendPage} />
       <Route path="/rolgordijnen/lichtdoorlatend/klassieke-rolgordijn-wit" component={KlassiekeRolgordijnWitPage} />
+      <Route path="/cart" component={CartPage} />
       <Route component={NotFound} />
     </Switch>
   );

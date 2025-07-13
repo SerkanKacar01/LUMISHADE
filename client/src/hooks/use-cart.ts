@@ -7,6 +7,12 @@ export interface CartItem {
   size: string;
   quantity: number;
   image: string;
+  operatingSide?: string;
+  chainType?: string;
+  installationType?: string;
+  color?: string;
+  fabricType?: string;
+  dimensions?: string;
 }
 
 export const useCart = () => {
@@ -24,12 +30,38 @@ export const useCart = () => {
     localStorage.setItem('cart', JSON.stringify(newCart));
   };
 
-  const addToCart = (productId: string, name: string, price: number, size: string, quantity: number, image: string) => {
-    const existingItem = cart.find(item => item.id === productId && item.size === size);
+  const addToCart = (
+    productId: string, 
+    name: string, 
+    price: number, 
+    size: string, 
+    quantity: number, 
+    image: string,
+    options?: {
+      operatingSide?: string;
+      chainType?: string;
+      installationType?: string;
+      color?: string;
+      fabricType?: string;
+      dimensions?: string;
+    }
+  ) => {
+    const itemKey = `${productId}-${size}-${options?.operatingSide || ''}-${options?.chainType || ''}-${options?.color || ''}`;
+    const existingItem = cart.find(item => 
+      item.id === productId && 
+      item.size === size && 
+      item.operatingSide === options?.operatingSide &&
+      item.chainType === options?.chainType &&
+      item.color === options?.color
+    );
     
     if (existingItem) {
       const updatedCart = cart.map(item => 
-        item.id === productId && item.size === size 
+        item.id === productId && 
+        item.size === size && 
+        item.operatingSide === options?.operatingSide &&
+        item.chainType === options?.chainType &&
+        item.color === options?.color
           ? { ...item, quantity: item.quantity + quantity }
           : item
       );
@@ -41,7 +73,8 @@ export const useCart = () => {
         price,
         size,
         quantity,
-        image
+        image,
+        ...options
       };
       saveCart([...cart, newItem]);
     }
