@@ -172,6 +172,29 @@
     background: #94a3b8;
   }
 
+  /* Enhanced gradient fade indicators */
+  .scroll-fade-left {
+    background: linear-gradient(to right, rgba(249, 250, 251, 0.95), rgba(249, 250, 251, 0.7), transparent);
+  }
+  
+  .scroll-fade-right {
+    background: linear-gradient(to left, rgba(249, 250, 251, 0.95), rgba(249, 250, 251, 0.7), transparent);
+  }
+
+  /* Width button consistent sizing */
+  .width-button-consistent {
+    height: 48px !important;
+    box-sizing: border-box;
+  }
+  
+  .width-button-consistent:hover {
+    transform: translateY(-1px);
+  }
+  
+  .width-button-consistent.selected {
+    transform: translateY(-1px) scale(1.02);
+  }
+
   /* Mobile width selector improvements */
   @media (max-width: 768px) {
     .width-selector-scroll {

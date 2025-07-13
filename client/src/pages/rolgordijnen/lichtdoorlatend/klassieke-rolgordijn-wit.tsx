@@ -48,7 +48,27 @@ export default function KlassiekeRolgordijnWitPage() {
       if (widthOptions.includes(roundedWidth)) {
         setSelectedWidth(roundedWidth);
         setSearchWidth("");
+        
+        // Scroll selected button into view
+        setTimeout(() => {
+          const selectedButton = document.querySelector(`[data-width="${roundedWidth}"]`);
+          if (selectedButton) {
+            selectedButton.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'nearest', 
+              inline: 'center' 
+            });
+          }
+        }, 100);
       }
+    }
+  };
+
+  // Handle Enter key in search input
+  const handleSearchKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSearchSubmit(e as any);
     }
   };
 
@@ -128,6 +148,7 @@ export default function KlassiekeRolgordijnWitPage() {
                     placeholder="Jump to width (e.g. 150)"
                     value={searchWidth}
                     onChange={(e) => setSearchWidth(e.target.value)}
+                    onKeyDown={handleSearchKeyDown}
                     className="pl-10 h-10"
                   />
                 </div>
@@ -138,15 +159,16 @@ export default function KlassiekeRolgordijnWitPage() {
 
               {/* Single Row Horizontal Scrollable Width Options */}
               <div className="relative">
-                <div className="width-selector-scroll flex gap-3 overflow-x-auto pb-4 scroll-smooth">
+                <div className="width-selector-scroll flex gap-3 overflow-x-auto pb-4 scroll-smooth" id="width-selector-container">
                   <div className="flex gap-3 min-w-max">
                     {widthOptions.map(width => (
                       <button
                         key={width}
+                        data-width={width}
                         onClick={() => setSelectedWidth(width)}
-                        className={`flex-shrink-0 min-w-[60px] md:min-w-[70px] h-[48px] px-3 md:px-4 py-2 text-sm md:text-base font-medium rounded-lg border transition-all duration-200 touch-target ${
+                        className={`width-button-consistent flex-shrink-0 min-w-[60px] md:min-w-[70px] px-3 md:px-4 py-2 text-sm md:text-base font-medium rounded-lg border transition-all duration-200 touch-target ${
                           selectedWidth === width
-                            ? 'bg-primary text-white border-primary shadow-lg scale-105'
+                            ? 'selected bg-primary text-white border-primary shadow-lg'
                             : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:border-gray-400 hover:shadow-md active:scale-95'
                         }`}
                       >
@@ -156,9 +178,17 @@ export default function KlassiekeRolgordijnWitPage() {
                   </div>
                 </div>
                 
-                {/* Scroll indicators */}
-                <div className="absolute left-0 top-0 bottom-4 w-4 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
-                <div className="absolute right-0 top-0 bottom-4 w-4 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+                {/* Enhanced Scroll indicators with subtle fade gradients */}
+                <div className="scroll-fade-left absolute left-0 top-0 bottom-4 w-12 pointer-events-none z-10"></div>
+                <div className="scroll-fade-right absolute right-0 top-0 bottom-4 w-12 pointer-events-none z-10"></div>
+                
+                {/* Visual cue arrows for swipe indication */}
+                <div className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400 text-sm pointer-events-none z-20 opacity-60">
+                  ⟨
+                </div>
+                <div className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 text-sm pointer-events-none z-20 opacity-60">
+                  ⟩
+                </div>
               </div>
               
               {/* Selected Width Indicator */}
