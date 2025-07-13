@@ -139,9 +139,17 @@ export default function RolgordijnenVerduisterendPage() {
                     <div className="text-base md:text-xl font-bold text-primary mb-2 md:mb-4">
                       €{product.price}
                     </div>
-                    <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
-                      Bekijk product
-                    </Button>
+                    {product.id === "1" ? (
+                      <Link to="/rolgordijnen/verduisterend/blackout-rolgordijn-zwart">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : (
+                      <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                        Bekijk product
+                      </Button>
+                    )}
                   </div>
                 </div>
               ))}

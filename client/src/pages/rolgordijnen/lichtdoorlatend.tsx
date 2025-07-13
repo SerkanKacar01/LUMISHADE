@@ -145,6 +145,12 @@ export default function RolgordijnenLichtdoorlatendPage() {
                           Bekijk product
                         </Button>
                       </Link>
+                    ) : product.id === "2" ? (
+                      <Link to="/rolgordijnen/lichtdoorlatend/modern-rolgordijn-beige">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
                     ) : (
                       <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
                         Bekijk product
