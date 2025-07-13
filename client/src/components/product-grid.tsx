@@ -11,11 +11,34 @@ export default function ProductGrid({ onProductClick }: ProductGridProps) {
       id: "rolgordijnen",
       label: "Rolgordijnen",
       link: "/products/rolgordijnen",
+      available: true,
     },
     {
       id: "duo-rolgordijnen",
       label: "Duo-Rolgordijnen",
       link: "/products/duo-rolgordijnen",
+      available: true,
+    },
+  ];
+
+  const comingSoonCategories = [
+    {
+      id: "vitrages",
+      label: "Vitrages",
+      description: "Lichte, elegante stoffen voor sfeervolle lichtinval",
+      available: false,
+    },
+    {
+      id: "overgordijnen",
+      label: "Overgordijnen",
+      description: "Volledige verduistering met stijlvolle, zware stoffen",
+      available: false,
+    },
+    {
+      id: "inbetweens",
+      label: "Inbetweens",
+      description: "De perfecte balans tussen privacy en lichtinval",
+      available: false,
     },
   ];
 
@@ -43,8 +66,9 @@ export default function ProductGrid({ onProductClick }: ProductGridProps) {
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto">
-            <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+          <div className="max-w-6xl mx-auto">
+            {/* Available Categories */}
+            <div className="flex flex-col md:flex-row gap-4 md:gap-6 mb-8">
               {categories.map((category) => (
                 <Link key={category.id} href={category.link} className="flex-1">
                   <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 sm:p-8 border border-gray-100 hover:border-primary/20 transform hover:-translate-y-1 cursor-pointer">
@@ -60,6 +84,28 @@ export default function ProductGrid({ onProductClick }: ProductGridProps) {
                     </div>
                   </div>
                 </Link>
+              ))}
+            </div>
+
+            {/* Coming Soon Categories */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+              {comingSoonCategories.map((category) => (
+                <div
+                  key={category.id}
+                  className="bg-gray-50 rounded-xl shadow-sm p-6 sm:p-8 border border-gray-200 opacity-70 pointer-events-none cursor-default"
+                >
+                  <div className="text-center">
+                    <h4 className="text-xl sm:text-2xl font-bold text-gray-500 mb-2">
+                      {category.label}
+                    </h4>
+                    <p className="text-sm sm:text-base text-gray-400 mb-3">
+                      {category.description}
+                    </p>
+                    <span className="inline-block px-3 py-1 bg-gray-200 text-gray-500 text-xs font-medium rounded-full">
+                      Coming soon
+                    </span>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
