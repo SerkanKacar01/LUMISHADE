@@ -22,9 +22,7 @@ export default function StandardRollerDescription() {
   return (
     <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
       <p className="text-blue-800 font-medium">
-        🔹 Standaard inbegrepen: Voorzien van een elegante ovale cassette, 
-        🔹 hoogwaardige stof, 🔹 kunststof kettingbediening (links of rechts), 
-        🔹 Aluminium onderlat (ovaal vorm & eenzijdig bedekt) en 🔹 volledig montagemateriaal.
+        ✅ Standaard inbegrepen: Voorzien van een elegante ovale cassette, hoogwaardige stof, kunststof kettingbediening (links of rechts), aluminium onderlat (ovaal vorm & eenzijdig bedekt), en volledig montagemateriaal.
       </p>
     </div>
   );
