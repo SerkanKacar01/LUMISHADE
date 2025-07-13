@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import { Package, Ruler, Palette, Users } from 'lucide-react';
+import { useEffect, useRef, useState } from "react";
+import { Package, Ruler, Palette, Users } from "lucide-react";
 
 interface BenefitItem {
   id: number;
@@ -16,27 +16,27 @@ export default function IconBenefitsStrip() {
     {
       id: 1,
       icon: <Ruler className="w-8 h-8 text-primary" />,
-      title: "Made to Measure",
-      subtitle: "Perfect fit for every window"
+      title: "Perfect op maat gemaakt",
+      subtitle: "Naadloze pasvorm voor elk raamtype",
     },
     {
       id: 2,
       icon: <Package className="w-8 h-8 text-primary" />,
-      title: "Fast Home Delivery",
-      subtitle: "Shipped directly to your door"
+      title: "Vakkundig geleverd aan huis",
+      subtitle: "Binnen 3 tot 4 weken bij jou thuis bezorgd",
     },
     {
       id: 3,
       icon: <Palette className="w-8 h-8 text-primary" />,
-      title: "Designer-Approved Fabrics",
-      subtitle: "Elegant, modern, and durable"
+      title: "Designer stoffen met zorg gekozen",
+      subtitle: "Elegant, eigentijds en duurzaam",
     },
     {
       id: 4,
       icon: <Users className="w-8 h-8 text-primary" />,
-      title: "Trusted by Thousands",
-      subtitle: "High customer satisfaction"
-    }
+      title: "Vertrouwd door duizenden klanten",
+      subtitle: "Hoge klanttevredenheid en bewezen kwaliteit",
+    },
   ];
 
   // Intersection Observer for fade-in animation
@@ -47,7 +47,7 @@ export default function IconBenefitsStrip() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (stripRef.current) {
@@ -62,10 +62,10 @@ export default function IconBenefitsStrip() {
   }, []);
 
   return (
-    <section 
+    <section
       ref={stripRef}
       className={`w-full bg-white py-8 sm:py-12 transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +75,7 @@ export default function IconBenefitsStrip() {
             <div
               key={benefit.id}
               className={`flex flex-col items-center text-center group transition-all duration-500 ${
-                isVisible ? 'animate-fade-in-up' : ''
+                isVisible ? "animate-fade-in-up" : ""
               }`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
@@ -85,7 +85,7 @@ export default function IconBenefitsStrip() {
                   {benefit.icon}
                 </div>
               </div>
-              
+
               {/* Text Content */}
               <h3 className="text-sm font-bold text-gray-900 mb-1 group-hover:text-primary transition-colors duration-300">
                 {benefit.title}
@@ -103,17 +103,15 @@ export default function IconBenefitsStrip() {
             <div
               key={benefit.id}
               className={`flex flex-col items-center text-center transition-all duration-500 ${
-                isVisible ? 'animate-fade-in-up' : ''
+                isVisible ? "animate-fade-in-up" : ""
               }`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* Animated Icon Container */}
               <div className="mb-3 p-3 rounded-full bg-primary/5">
-                <div className="animate-pulse">
-                  {benefit.icon}
-                </div>
+                <div className="animate-pulse">{benefit.icon}</div>
               </div>
-              
+
               {/* Text Content */}
               <h3 className="text-sm font-bold text-gray-900 mb-1">
                 {benefit.title}
@@ -138,7 +136,7 @@ export default function IconBenefitsStrip() {
             transform: translateY(0);
           }
         }
-        
+
         .animate-fade-in-up {
           animation: fade-in-up 0.6s ease-out forwards;
         }
