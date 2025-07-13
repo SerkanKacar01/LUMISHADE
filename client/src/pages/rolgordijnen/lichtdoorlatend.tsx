@@ -7,6 +7,7 @@ import CheckoutModal from "@/components/checkout-modal";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
+import StandardRollerDescription from "@/components/ui/standard-roller-description";
 
 export default function RolgordijnenLichtdoorlatendPage() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -110,6 +111,13 @@ export default function RolgordijnenLichtdoorlatendPage() {
             </p>
           </div>
         </div>
+
+        {/* Standard Description */}
+        <section className="py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <StandardRollerDescription />
+          </div>
+        </section>
 
         {/* Products Grid */}
         <section className="py-12 md:py-16">

@@ -40,6 +40,7 @@ Preferred communication style: Simple, everyday language.
 - **Checkout System**: Order form with customer information
 - **UI Components**: Comprehensive set of accessible UI components from Radix UI
 - **Navigation**: Header with cart indicator, smooth scrolling navigation
+- **Shared Components**: StandardRollerDescription component for consistent information across all rolgordijnen products
 
 ### Backend Components
 - **Express Server**: Main application server with middleware
