@@ -190,6 +190,13 @@ export default function KlassiekeRolgordijnWitPage() {
                   ⟩
                 </div>
               </div>
+
+              {/* User guidance text for mobile interaction */}
+              <div className="mt-3 mb-4 text-center md:hidden">
+                <p className="text-sm text-gray-500">
+                  Swipe left or right to select your preferred width.
+                </p>
+              </div>
               
               {/* Selected Width Indicator */}
               <div className="text-center">
