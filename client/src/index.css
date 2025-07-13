@@ -127,4 +127,37 @@
       font-size: 20px;
     }
   }
+
+  /* Custom scrollbar styles for width selector */
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 2px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  /* Mobile width selector improvements */
+  @media (max-width: 768px) {
+    .width-selector-row {
+      gap: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    
+    .width-button {
+      min-width: 50px;
+      font-size: 12px;
+      padding: 0.5rem 0.75rem;
+    }
+  }
 }

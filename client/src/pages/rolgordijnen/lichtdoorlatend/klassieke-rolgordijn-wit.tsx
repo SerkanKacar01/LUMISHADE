@@ -4,7 +4,8 @@ import Footer from "@/components/footer";
 import CartModal from "@/components/cart-modal";
 import CheckoutModal from "@/components/checkout-modal";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { ArrowLeft, Search } from "lucide-react";
 import { Link } from "wouter";
 
 export default function KlassiekeRolgordijnWitPage() {
@@ -13,6 +14,7 @@ export default function KlassiekeRolgordijnWitPage() {
   const [quantity, setQuantity] = useState(1);
   const [selectedWidth, setSelectedWidth] = useState(100);
   const [operatingSide, setOperatingSide] = useState("rechts");
+  const [searchWidth, setSearchWidth] = useState("");
 
   const handleCartClick = () => {
     setIsCartOpen(true);
@@ -35,6 +37,27 @@ export default function KlassiekeRolgordijnWitPage() {
 
   // Generate width options from 40 to 280 cm in 5 cm increments
   const widthOptions = Array.from({ length: ((280 - 40) / 5 + 1) }, (_, i) => 40 + i * 5);
+  
+  // Group width options into chunks for horizontal scrolling
+  const chunkSize = 8; // 8 buttons per row for optimal mobile display
+  const widthChunks = [];
+  for (let i = 0; i < widthOptions.length; i += chunkSize) {
+    widthChunks.push(widthOptions.slice(i, i + chunkSize));
+  }
+
+  // Handle search functionality
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const searchValue = parseInt(searchWidth);
+    if (searchValue >= 40 && searchValue <= 280) {
+      // Round to nearest 5cm increment
+      const roundedWidth = Math.round(searchValue / 5) * 5;
+      if (widthOptions.includes(roundedWidth)) {
+        setSelectedWidth(roundedWidth);
+        setSearchWidth("");
+      }
+    }
+  };
 
   return (
     <>
@@ -95,24 +118,61 @@ export default function KlassiekeRolgordijnWitPage() {
             </div>
 
             {/* Width Selector */}
-            <div className="space-y-3">
-              <label className="block text-lg font-semibold text-gray-900">
-                Width (cm)
-              </label>
-              <div className="grid grid-cols-3 gap-2 max-w-md">
-                {widthOptions.map(width => (
-                  <button
-                    key={width}
-                    onClick={() => setSelectedWidth(width)}
-                    className={`px-3 py-2 text-sm font-medium rounded-md border transition-colors ${
-                      selectedWidth === width
-                        ? 'bg-primary text-white border-primary'
-                        : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
-                    }`}
-                  >
-                    {width} cm
-                  </button>
+            <div className="space-y-4">
+              <div className="sticky top-0 bg-white z-10 pb-2">
+                <label className="block text-lg font-semibold text-gray-900 mb-3">
+                  Width (cm)
+                </label>
+                
+                {/* Quick Search */}
+                <form onSubmit={handleSearchSubmit} className="flex gap-2 mb-4">
+                  <div className="relative flex-1 max-w-xs">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Input
+                      type="number"
+                      min="40"
+                      max="280"
+                      step="5"
+                      placeholder="Jump to width (e.g. 150)"
+                      value={searchWidth}
+                      onChange={(e) => setSearchWidth(e.target.value)}
+                      className="pl-10 h-10"
+                    />
+                  </div>
+                  <Button type="submit" variant="outline" size="sm" className="h-10 px-4">
+                    Go
+                  </Button>
+                </form>
+              </div>
+
+              {/* Horizontal Scrollable Width Options */}
+              <div className="space-y-2 max-h-64 overflow-y-auto">
+                {widthChunks.map((chunk, chunkIndex) => (
+                  <div key={chunkIndex} className="width-selector-row flex gap-2 overflow-x-auto pb-2 scrollbar-thin">
+                    <div className="flex gap-2 min-w-max px-1">
+                      {chunk.map(width => (
+                        <button
+                          key={width}
+                          onClick={() => setSelectedWidth(width)}
+                          className={`width-button px-3 py-2 text-sm md:text-sm font-medium rounded-md border transition-colors flex-shrink-0 min-w-[55px] md:min-w-[60px] touch-target ${
+                            selectedWidth === width
+                              ? 'bg-primary text-white border-primary shadow-md'
+                              : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:border-gray-400'
+                          }`}
+                        >
+                          {width}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 ))}
+              </div>
+              
+              {/* Selected Width Indicator */}
+              <div className="text-center">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary">
+                  Selected: {selectedWidth} cm
+                </span>
               </div>
             </div>
 
