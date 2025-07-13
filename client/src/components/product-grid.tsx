@@ -11,7 +11,7 @@ export default function ProductGrid({ onProductClick }: ProductGridProps) {
       id: 'rolgordijnen', 
       label: 'Rolgordijnen',
       icon: '🪟',
-      link: '/rolgordijnen/lichtdoorlatend'
+      link: '/products/rolgordijnen'
     },
     { 
       id: 'duo-rolgordijnen', 
