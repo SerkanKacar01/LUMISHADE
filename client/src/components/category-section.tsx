@@ -36,9 +36,9 @@ const categories = [
 export default function CategorySection() {
   const handleCategoryClick = (categoryId: string) => {
     // Navigate to category page based on availability
-    if (categoryId === "roller-blinds") {
+    if (categoryId === "Rolgordijnen") {
       window.location.href = "/rolgordijnen";
-    } else if (categoryId === "duo-roller-blinds") {
+    } else if (categoryId === "Duo-rolgordijnen") {
       window.location.href = "/duo-rolgordijnen";
     }
     // Coming soon categories don't navigate
