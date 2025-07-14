@@ -1,4 +1,5 @@
 import Header from "@/components/header";
+import MainNavigation from "@/components/main-navigation";
 import Hero from "@/components/hero";
 import ProductCategoryButtons from "@/components/product-category-buttons";
 import IconBenefitsStrip from "@/components/ui/icon-benefits-strip";
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <MainNavigation />
       <Hero />
       <ProductCategoryButtons />
       <IconBenefitsStrip />
