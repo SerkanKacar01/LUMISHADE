@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { Plus, Minus, Trash2, ShoppingCart, ArrowLeft } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
 import { formatPrice } from "@/lib/utils";
@@ -10,7 +16,8 @@ import Footer from "@/components/footer";
 import CheckoutModal from "@/components/checkout-modal";
 
 export default function CartPage() {
-  const { cart, updateQuantity, removeFromCart, clearCart, getTotalPrice } = useCart();
+  const { cart, updateQuantity, removeFromCart, clearCart, getTotalPrice } =
+    useCart();
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [isRemoveDialogOpen, setIsRemoveDialogOpen] = useState(false);
   const [itemToRemove, setItemToRemove] = useState<number | null>(null);
@@ -42,21 +49,25 @@ export default function CartPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      
+
       <main className="max-w-4xl mx-auto px-4 py-8">
         {/* Page Header */}
         <div className="mb-8">
           <div className="flex items-center gap-4 mb-4">
             <Link href="/">
-              <Button variant="ghost" size="sm" className="flex items-center gap-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="flex items-center gap-2"
+              >
                 <ArrowLeft className="h-4 w-4" />
-                Back to Shop
+                Terug naar winkel
               </Button>
             </Link>
           </div>
           <div className="flex items-center gap-3">
             <ShoppingCart className="h-8 w-8 text-primary" />
-            <h1 className="text-3xl font-bold text-gray-900">Shopping Cart</h1>
+            <h1 className="text-3xl font-bold text-gray-900">Winkelwagen</h1>
           </div>
         </div>
 
@@ -65,11 +76,15 @@ export default function CartPage() {
           /* Empty Cart Message */
           <div className="text-center py-16">
             <ShoppingCart className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-            <h2 className="text-2xl font-semibold text-gray-900 mb-2">Your cart is currently empty</h2>
-            <p className="text-gray-600 mb-8">Add some products to get started</p>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+              Je winkelwagen is momenteel leeg
+            </h2>
+            <p className="text-gray-600 mb-8">
+              Voeg enkele producten toe om te beginnen
+            </p>
             <Link href="/">
               <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg">
-                Continue Shopping
+                Verder winkelen
               </Button>
             </Link>
           </div>
@@ -78,15 +93,20 @@ export default function CartPage() {
             {/* Product List */}
             <div className="lg:col-span-2">
               <div className="bg-white rounded-lg shadow-sm p-6">
-                <h2 className="text-xl font-semibold mb-6">Items in your cart</h2>
-                
+                <h2 className="text-xl font-semibold mb-6">
+                  Items in your cart
+                </h2>
+
                 <div className="space-y-6">
                   {cart.map((item, index) => (
-                    <div key={`${item.id}-${item.size}`} className="flex flex-col sm:flex-row gap-4 p-4 border border-gray-200 rounded-lg">
+                    <div
+                      key={`${item.id}-${item.size}`}
+                      className="flex flex-col sm:flex-row gap-4 p-4 border border-gray-200 rounded-lg"
+                    >
                       {/* Product Image */}
                       <div className="flex-shrink-0">
-                        <img 
-                          src={item.image} 
+                        <img
+                          src={item.image}
                           alt={item.name}
                           className="w-20 h-20 object-cover rounded-lg"
                         />
@@ -94,35 +114,62 @@ export default function CartPage() {
 
                       {/* Product Details */}
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-lg text-gray-900 mb-2">{item.name}</h3>
+                        <h3 className="font-semibold text-lg text-gray-900 mb-2">
+                          {item.name}
+                        </h3>
                         <div className="space-y-1 text-sm text-gray-600">
-                          <p><span className="font-medium">Size:</span> {item.dimensions || item.size}</p>
+                          <p>
+                            <span className="font-medium">Size:</span>{" "}
+                            {item.dimensions || item.size}
+                          </p>
                           {item.operatingSide && (
-                            <p><span className="font-medium">Operating Side:</span> {item.operatingSide}</p>
+                            <p>
+                              <span className="font-medium">
+                                Operating Side:
+                              </span>{" "}
+                              {item.operatingSide}
+                            </p>
                           )}
                           {item.chainType && (
-                            <p><span className="font-medium">Chain Type:</span> {item.chainType}</p>
+                            <p>
+                              <span className="font-medium">Chain Type:</span>{" "}
+                              {item.chainType}
+                            </p>
                           )}
                           {item.color && (
-                            <p><span className="font-medium">Color:</span> {item.color}</p>
+                            <p>
+                              <span className="font-medium">Color:</span>{" "}
+                              {item.color}
+                            </p>
                           )}
                           {item.fabricType && (
-                            <p><span className="font-medium">Fabric Type:</span> {item.fabricType}</p>
+                            <p>
+                              <span className="font-medium">Fabric Type:</span>{" "}
+                              {item.fabricType}
+                            </p>
                           )}
                           {item.installationType && (
-                            <p><span className="font-medium">Installation:</span> {item.installationType}</p>
+                            <p>
+                              <span className="font-medium">Installation:</span>{" "}
+                              {item.installationType}
+                            </p>
                           )}
-                          <p><span className="font-medium">Unit Price:</span> {formatPrice(item.price)}</p>
+                          <p>
+                            <span className="font-medium">Unit Price:</span>{" "}
+                            {formatPrice(item.price)}
+                          </p>
                         </div>
                       </div>
 
                       {/* Quantity Controls */}
                       <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                         <div className="flex items-center gap-2">
-                          <span className="text-sm font-medium text-gray-700">Qty:</span>
+                          <span className="text-sm font-medium text-gray-700">
+                            Qty:
+                          </span>
                           <div className="flex items-center border border-gray-300 rounded-md">
-                            <Button 
-                              variant="ghost" 
+                            <Button
+                              variant="ghost"
                               size="icon"
                               onClick={() => updateQuantity(index, -1)}
                               disabled={item.quantity <= 1}
@@ -130,9 +177,11 @@ export default function CartPage() {
                             >
                               <Minus className="h-4 w-4" />
                             </Button>
-                            <span className="w-12 text-center font-medium">{item.quantity}</span>
-                            <Button 
-                              variant="ghost" 
+                            <span className="w-12 text-center font-medium">
+                              {item.quantity}
+                            </span>
+                            <Button
+                              variant="ghost"
                               size="icon"
                               onClick={() => updateQuantity(index, 1)}
                               className="h-10 w-10 rounded-none border-l border-gray-300"
@@ -147,8 +196,8 @@ export default function CartPage() {
                           <span className="font-bold text-lg text-gray-900">
                             {formatPrice(item.price * item.quantity)}
                           </span>
-                          <Button 
-                            variant="ghost" 
+                          <Button
+                            variant="ghost"
                             size="sm"
                             onClick={() => handleRemoveItem(index)}
                             className="text-red-600 hover:text-red-800 hover:bg-red-50 min-h-[44px] px-3"
@@ -164,7 +213,7 @@ export default function CartPage() {
 
                 {/* Clear Cart Button */}
                 <div className="mt-6 pt-6 border-t border-gray-200">
-                  <Button 
+                  <Button
                     variant="outline"
                     onClick={clearCart}
                     className="text-red-600 border-red-600 hover:bg-red-50"
@@ -179,13 +228,13 @@ export default function CartPage() {
             <div className="lg:col-span-1">
               <div className="bg-white rounded-lg shadow-sm p-6 sticky top-8">
                 <h2 className="text-xl font-semibold mb-6">Order Summary</h2>
-                
+
                 <div className="space-y-4">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Subtotal:</span>
                     <span className="font-medium">{formatPrice(total)}</span>
                   </div>
-                  
+
                   <div className="flex justify-between">
                     <span className="text-gray-600">Shipping:</span>
                     <span className="font-medium">
@@ -196,22 +245,24 @@ export default function CartPage() {
                       )}
                     </span>
                   </div>
-                  
+
                   {total < 50 && (
                     <p className="text-sm text-blue-600 bg-blue-50 p-2 rounded">
                       Add {formatPrice(50 - total)} more for free shipping!
                     </p>
                   )}
-                  
+
                   <div className="border-t pt-4">
                     <div className="flex justify-between items-center">
                       <span className="text-lg font-semibold">Total:</span>
-                      <span className="text-2xl font-bold text-primary">{formatPrice(finalTotal)}</span>
+                      <span className="text-2xl font-bold text-primary">
+                        {formatPrice(finalTotal)}
+                      </span>
                     </div>
                   </div>
                 </div>
 
-                <Button 
+                <Button
                   onClick={handleCheckout}
                   className="w-full mt-6 bg-primary hover:bg-primary/90 text-white py-4 text-lg font-semibold min-h-[48px]"
                 >
@@ -219,7 +270,10 @@ export default function CartPage() {
                 </Button>
 
                 <Link href="/">
-                  <Button variant="outline" className="w-full mt-3 min-h-[48px]">
+                  <Button
+                    variant="outline"
+                    className="w-full mt-3 min-h-[48px]"
+                  >
                     Continue Shopping
                   </Button>
                 </Link>
@@ -241,7 +295,10 @@ export default function CartPage() {
             </DialogDescription>
           </DialogHeader>
           <div className="flex justify-end gap-3 mt-6">
-            <Button variant="outline" onClick={() => setIsRemoveDialogOpen(false)}>
+            <Button
+              variant="outline"
+              onClick={() => setIsRemoveDialogOpen(false)}
+            >
               Cancel
             </Button>
             <Button variant="destructive" onClick={confirmRemove}>
@@ -252,9 +309,9 @@ export default function CartPage() {
       </Dialog>
 
       {/* Checkout Modal */}
-      <CheckoutModal 
-        isOpen={isCheckoutOpen} 
-        onClose={() => setIsCheckoutOpen(false)} 
+      <CheckoutModal
+        isOpen={isCheckoutOpen}
+        onClose={() => setIsCheckoutOpen(false)}
       />
     </div>
   );
