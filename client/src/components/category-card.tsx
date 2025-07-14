@@ -1,41 +1,42 @@
-import { Badge } from "@/components/ui/badge";
-
 interface CategoryCardProps {
   title: string;
-  description: string;
   image: string;
   status: "Available" | "Coming Soon";
   onClick?: () => void;
 }
 
-export default function CategoryCard({ title, description, image, status, onClick }: CategoryCardProps) {
+export default function CategoryCard({ title, image, status, onClick }: CategoryCardProps) {
+  const isClickable = status === "Available";
+  
   return (
     <div 
-      className="group relative bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg"
-      onClick={onClick}
+      className={`relative h-64 rounded-lg overflow-hidden transition-all duration-300 ${
+        isClickable 
+          ? "cursor-pointer hover:scale-105" 
+          : "cursor-default"
+      }`}
+      onClick={isClickable ? onClick : undefined}
+      style={{
+        backgroundImage: `url(${image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
     >
-      <div className="aspect-[4/3] overflow-hidden">
-        <img 
-          src={image} 
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-      </div>
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-30" />
       
-      <div className="p-6">
-        <div className="flex items-start justify-between mb-3">
-          <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
-          <Badge 
-            variant={status === "Available" ? "default" : "secondary"}
-            className={status === "Available" ? "bg-green-500 hover:bg-green-600" : "bg-gray-400 hover:bg-gray-500"}
-          >
-            {status}
-          </Badge>
+      {/* Coming Soon badge */}
+      {status === "Coming Soon" && (
+        <div className="absolute top-4 right-4 bg-gray-500 text-white text-xs font-medium px-3 py-1 rounded">
+          Coming Soon
         </div>
-        
-        <p className="text-gray-600 text-sm leading-relaxed">
-          {description}
-        </p>
+      )}
+      
+      {/* Centered title */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <h3 className="text-white text-lg font-bold text-center px-4">
+          {title}
+        </h3>
       </div>
     </div>
   );
