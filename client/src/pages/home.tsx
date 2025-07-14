@@ -1,5 +1,6 @@
 import Header from "@/components/header";
 import Hero from "@/components/hero";
+import ProductCategoryButtons from "@/components/product-category-buttons";
 import IconBenefitsStrip from "@/components/ui/icon-benefits-strip";
 import CategorySection from "@/components/category-section";
 import ProductGrid from "@/components/product-grid";
@@ -14,6 +15,7 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <Header />
       <Hero />
+      <ProductCategoryButtons />
       <IconBenefitsStrip />
       <CategorySection />
       <ProductGrid />
