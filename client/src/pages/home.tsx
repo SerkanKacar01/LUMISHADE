@@ -10,10 +10,12 @@ import Footer from "@/components/footer";
 import ProductDetailModal from "@/components/product-detail-modal";
 import CartModal from "@/components/cart-modal";
 import CheckoutModal from "@/components/checkout-modal";
+import FreeSamplesBanner from "@/components/free-samples-banner";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
+      <FreeSamplesBanner />
       <Header />
       <MainNavigation />
       <Hero />
