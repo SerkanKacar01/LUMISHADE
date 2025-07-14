@@ -1,6 +1,7 @@
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import IconBenefitsStrip from "@/components/ui/icon-benefits-strip";
+import CategorySection from "@/components/category-section";
 import ProductGrid from "@/components/product-grid";
 import WhyChooseUs from "@/components/why-choose-us";
 import Footer from "@/components/footer";
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <Hero />
       <IconBenefitsStrip />
+      <CategorySection />
       <ProductGrid />
       <WhyChooseUs />
       <Footer />
