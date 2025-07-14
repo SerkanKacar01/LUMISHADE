@@ -151,6 +151,54 @@ export default function RolgordijnenLichtdoorlatendPage() {
                           Bekijk product
                         </Button>
                       </Link>
+                    ) : product.id === "3" ? (
+                      <Link to="/rolgordijnen/lichtdoorlatend/elegante-rolgordijn-grijs">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : product.id === "4" ? (
+                      <Link to="/rolgordijnen/lichtdoorlatend/comfortabele-rolgordijn-creme">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : product.id === "5" ? (
+                      <Link to="/rolgordijnen/lichtdoorlatend/exclusieve-rolgordijn-terracotta">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : product.id === "6" ? (
+                      <Link to="/rolgordijnen/lichtdoorlatend/natural-rolgordijn-linnen">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : product.id === "7" ? (
+                      <Link to="/rolgordijnen/lichtdoorlatend/design-rolgordijn-zand">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : product.id === "8" ? (
+                      <Link to="/rolgordijnen/lichtdoorlatend/trendy-rolgordijn-sage">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : product.id === "9" ? (
+                      <Link to="/rolgordijnen/lichtdoorlatend/premium-rolgordijn-pearl">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : product.id === "10" ? (
+                      <Link to="/rolgordijnen/lichtdoorlatend/stijlvolle-rolgordijn-ivory">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
                     ) : (
                       <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
                         Bekijk product

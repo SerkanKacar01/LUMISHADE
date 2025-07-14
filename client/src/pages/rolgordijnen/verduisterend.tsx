@@ -139,8 +139,56 @@ export default function RolgordijnenVerduisterendPage() {
                     <div className="text-base md:text-xl font-bold text-primary mb-2 md:mb-4">
                       €{product.price}
                     </div>
-                    {product.id === "1" ? (
+                    {product.id === "21" ? (
                       <Link to="/rolgordijnen/verduisterend/blackout-rolgordijn-zwart">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : product.id === "22" ? (
+                      <Link to="/rolgordijnen/verduisterend/premium-blackout-blauw">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : product.id === "23" ? (
+                      <Link to="/rolgordijnen/verduisterend/elegante-blackout-grijs">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : product.id === "24" ? (
+                      <Link to="/rolgordijnen/verduisterend/standaard-blackout-wit">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : product.id === "25" ? (
+                      <Link to="/rolgordijnen/verduisterend/complete-blackout-bordeaux">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : product.id === "26" ? (
+                      <Link to="/rolgordijnen/verduisterend/moderne-blackout-groen">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : product.id === "27" ? (
+                      <Link to="/rolgordijnen/verduisterend/stijlvolle-blackout-paars">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : product.id === "28" ? (
+                      <Link to="/rolgordijnen/verduisterend/professional-blackout-charcoal">
+                        <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
+                          Bekijk product
+                        </Button>
+                      </Link>
+                    ) : product.id === "29" ? (
+                      <Link to="/rolgordijnen/verduisterend/designer-blackout-midnight">
                         <Button className="w-full text-xs md:text-sm py-2 md:py-3 min-h-[36px] md:min-h-[44px]">
                           Bekijk product
                         </Button>
