@@ -2,32 +2,32 @@ import CategoryCard from "./category-card";
 
 const categories = [
   {
-    id: "roller-blinds",
-    title: "Roller Blinds",
+    id: "Rolgordijnen",
+    title: "Rolgordijnen",
     status: "Available" as const,
     image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=800"
   },
   {
-    id: "duo-roller-blinds", 
-    title: "Duo Roller Blinds",
+    id: "Duo-rolgordijnen", 
+    title: "Duo-rolgordijnen",
     status: "Available" as const,
     image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=800"
   },
   {
-    id: "sheer-curtains",
-    title: "Sheer Curtains", 
+    id: "vitrages",
+    title: "Vitrages", 
     status: "Coming Soon" as const,
     image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=800"
   },
   {
-    id: "blackout-curtains",
-    title: "Blackout Curtains",
+    id: "overgordijnen",
+    title: "Overgordijnen",
     status: "Coming Soon" as const,
     image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=800"
   },
   {
-    id: "inbetween-curtains",
-    title: "Inbetween Curtains",
+    id: "inbetweens",
+    title: "Inbetween",
     status: "Coming Soon" as const,
     image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800"
   }
