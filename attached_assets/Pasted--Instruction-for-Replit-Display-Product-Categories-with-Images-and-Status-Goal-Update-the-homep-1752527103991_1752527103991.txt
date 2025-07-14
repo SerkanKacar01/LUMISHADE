@@ -1,0 +1,55 @@
+✅ Instruction for Replit – Display Product Categories with Images and Status
+
+Goal:
+Update the homepage category section to visually showcase key product categories. Each category should include an image, title, short description, and an optional status label (“Available” or “Coming Soon”).
+
+⸻
+
+🔧 Implementation Details:
+	1.	Section Title
+Add the title above the section:
+Popular Window Coverings
+	2.	Category Cards (Grid Layout)
+Create a grid layout with cards (2 or 3 per row). Each card must include:
+	•	📷 A category image (for example: roller blinds in an interior).
+	•	🏷️ Title (e.g. “Roller Blinds”)
+	•	📝 Short description (see below).
+	•	🟢 Status badge:
+	•	Show Available in green for active categories
+	•	Show Coming Soon in gray for upcoming categories
+	3.	Category Content (5 Cards Total):
+a. Roller Blinds
+	•	Title: Roller Blinds
+	•	Description: Light filtering or blackout. Timeless and functional window coverings.
+	•	Status: ✅ Available
+	•	Image: Use a modern interior with roller blinds
+b. Duo Roller Blinds
+	•	Title: Duo Roller Blinds
+	•	Description: Modern day & night control. Sleek design with adjustable transparency.
+	•	Status: ✅ Available
+	•	Image: Use an image with duo shades in daylight
+c. Sheer Curtains (Vitrages)
+	•	Title: Sheer Curtains
+	•	Description: Soft light, elegant atmosphere. Perfect for privacy with daylight.
+	•	Status: ⚠️ Coming Soon
+	•	Image: Use a soft-lit room with sheer curtains
+d. Blackout Curtains (Overgordijnen)
+	•	Title: Blackout Curtains
+	•	Description: Full privacy and darkness. Ideal for bedrooms and living rooms.
+	•	Status: ⚠️ Coming Soon
+	•	Image: Cozy bedroom with blackout curtains
+e. Inbetween Curtains
+	•	Title: Inbetween Curtains
+	•	Description: A perfect balance between light and privacy. Airy and decorative.
+	•	Status: ⚠️ Coming Soon
+	•	Image: Bright living room with semi-transparent inbetween fabric
+	4.	Hover Effect
+On hover, slightly enlarge the card (scale-105) and apply a shadow for interactivity.
+	5.	Responsive Layout
+Ensure the section is fully responsive:
+	•	Mobile: 1 column
+	•	Tablet: 2 columns
+	•	Desktop: 3 columns
+	6.	Component Suggestion
+Create a reusable component named:
+CategoryCard.tsx
