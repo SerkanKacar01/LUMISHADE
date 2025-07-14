@@ -70,6 +70,34 @@
     background: linear-gradient(135deg, hsl(60, 4.8%, 95.9%) 0%, hsl(60, 4.8%, 92%) 100%);
   }
 
+  /* Width selector scroll styles */
+  .width-selector-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .width-selector-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scroll-fade-left {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.9), transparent);
+  }
+  
+  .scroll-fade-right {
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent);
+  }
+  
+  .width-button-consistent {
+    touch-action: manipulation;
+    user-select: none;
+  }
+  
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
   /* Mobile-specific utilities */
   .line-clamp-2 {
     display: -webkit-box;

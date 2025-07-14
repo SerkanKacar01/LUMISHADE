@@ -7,12 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowLeft, Search } from "lucide-react";
 import { Link } from "wouter";
-import {
-  classicWhitePrices,
-  getAvailableWidths,
-  getPriceForWidth,
-  formatSizeString,
-} from "@/data/prices/klassieke-wit";
+import { getPriceByWidth, getAvailableWidths, formatSize } from "@/data/pricing";
 import StandardRollerDescription from "@/components/ui/standard-roller-description";
 
 export default function KlassiekeRolgordijnWitPage() {
@@ -32,8 +27,8 @@ export default function KlassiekeRolgordijnWitPage() {
     setIsCheckoutOpen(true);
   };
 
-  // Get current price based on selected width
-  const currentPrice = getPriceForWidth(selectedWidth);
+  // Get current price based on selected width for lichtdoorlatend
+  const currentPrice = getPriceByWidth('lichtdoorlatend', selectedWidth);
   const totalPrice = currentPrice * quantity;
 
   const handleAddToCart = () => {
@@ -41,7 +36,7 @@ export default function KlassiekeRolgordijnWitPage() {
       product: "Klassieke Rolgordijn Wit",
       quantity,
       operatingSide,
-      size: formatSizeString(selectedWidth),
+      size: formatSize(selectedWidth),
       unitPrice: currentPrice,
       totalPrice: totalPrice,
     });
@@ -214,7 +209,7 @@ export default function KlassiekeRolgordijnWitPage() {
                         <div className="flex flex-col items-center">
                           <span>{width}cm</span>
                           <span className="text-xs opacity-75">
-                            €{getPriceForWidth(width).toFixed(2)}
+                            €{getPriceByWidth('lichtdoorlatend', width).toFixed(2)}
                           </span>
                         </div>
                       </button>
@@ -257,7 +252,7 @@ export default function KlassiekeRolgordijnWitPage() {
                 Geselecteerde maat
               </label>
               <div className="text-lg text-gray-700 bg-gray-50 px-4 py-3 rounded-md border">
-                {formatSizeString(selectedWidth)}
+                {formatSize(selectedWidth)}
               </div>
             </div>
 
