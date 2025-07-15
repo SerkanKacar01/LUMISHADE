@@ -10,9 +10,9 @@ export default function WhyChooseUs() {
     },
     {
       icon: Truck,
-      title: "Snelle Levering",
+      title: "Vakkundig geleverd aan huis",
       description:
-        "Bestellingen worden snel verwerkt en betrouwbaar aan huis geleverd – klaar voor directe installatie.",
+        "Binnen 3 tot 4 weken bij jou thuis bezorgd.",
     },
     {
       icon: Wrench,
