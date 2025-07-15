@@ -15,37 +15,37 @@ export default function Header({ onCartClick }: HeaderProps) {
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50" style={{ backgroundColor: '#FFFFFF' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center py-5 min-h-[64px] sm:min-h-[72px] relative">
+        <div className="flex items-center py-6 min-h-[80px] sm:min-h-[90px] relative">
           {/* Mobile layout: centered logo with absolute positioned cart */}
-          <div className="flex items-center justify-center w-full sm:hidden">
+          <div className="flex items-center justify-center w-full md:hidden">
             <Link to="/" className="block">
               <img 
                 src={logoPath} 
                 alt="LUMISHADÉ logo" 
-                className="h-auto w-auto max-w-[180px] object-contain"
-                style={{ maxHeight: '60px' }}
+                className="h-auto w-auto min-w-[200px] max-w-[240px] object-contain"
+                style={{ minHeight: '50px', maxHeight: '80px' }}
               />
             </Link>
           </div>
           
-          {/* Desktop layout: logo on left, cart on right */}
-          <div className="hidden sm:flex items-center justify-start flex-1">
+          {/* Tablet and Desktop layout: logo on left, cart on right */}
+          <div className="hidden md:flex items-center justify-start flex-1">
             <Link to="/" className="block">
               <img 
                 src={logoPath} 
                 alt="LUMISHADÉ logo" 
-                className="h-auto w-auto max-w-[220px] object-contain"
-                style={{ maxHeight: '60px' }}
+                className="h-auto w-auto min-w-[220px] max-w-[280px] object-contain"
+                style={{ minHeight: '55px', maxHeight: '85px' }}
               />
             </Link>
           </div>
 
-          <div className="flex items-center space-x-2 sm:space-x-4 absolute right-0 sm:relative">
+          <div className="flex items-center space-x-2 md:space-x-4 absolute right-0 md:relative">
             {onCartClick ? (
               <Button
                 variant="ghost"
                 size="icon"
-                className="relative min-h-[44px] min-w-[44px]"
+                className="relative min-h-[48px] min-w-[48px]"
                 onClick={onCartClick}
               >
                 <ShoppingCart className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -60,7 +60,7 @@ export default function Header({ onCartClick }: HeaderProps) {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="relative min-h-[44px] min-w-[44px]"
+                  className="relative min-h-[48px] min-w-[48px]"
                 >
                   <ShoppingCart className="h-5 w-5 sm:h-6 sm:w-6" />
                   {totalItems > 0 && (
