@@ -1,7 +1,7 @@
 import Header from "@/components/header";
 import MainNavigation from "@/components/main-navigation";
 import Hero from "@/components/hero";
-import ProductCategoryButtons from "@/components/product-category-buttons";
+
 import IconBenefitsStrip from "@/components/ui/icon-benefits-strip";
 import CategorySection from "@/components/category-section";
 import ProductGrid from "@/components/product-grid";
@@ -19,7 +19,6 @@ export default function Home() {
       <Header />
       <MainNavigation />
       <Hero />
-      <ProductCategoryButtons />
       <IconBenefitsStrip />
       <CategorySection />
       <ProductGrid />
