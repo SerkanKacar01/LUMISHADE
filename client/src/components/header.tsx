@@ -15,15 +15,15 @@ export default function Header({ onCartClick }: HeaderProps) {
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50" style={{ backgroundColor: '#FFFFFF' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center py-6 min-h-[80px] sm:min-h-[90px] relative">
+        <div className="flex items-center py-3 min-h-[100px] sm:min-h-[110px] relative">
           {/* Mobile layout: centered logo with absolute positioned cart */}
           <div className="flex items-center justify-center w-full md:hidden">
             <Link to="/" className="block">
               <img 
                 src={logoPath} 
                 alt="LUMISHADÉ logo" 
-                className="h-auto w-auto min-w-[200px] max-w-[240px] object-contain"
-                style={{ minHeight: '70px', maxHeight: '120px' }}
+                className="h-auto w-auto min-w-[240px] max-w-[280px] object-contain"
+                style={{ minHeight: '90px', maxHeight: '130px' }}
               />
             </Link>
           </div>
@@ -34,8 +34,8 @@ export default function Header({ onCartClick }: HeaderProps) {
               <img 
                 src={logoPath} 
                 alt="LUMISHADÉ logo" 
-                className="h-auto w-auto min-w-[220px] max-w-[280px] object-contain"
-                style={{ minHeight: '70px', maxHeight: '120px' }}
+                className="h-auto w-auto min-w-[260px] max-w-[320px] object-contain"
+                style={{ minHeight: '90px', maxHeight: '140px' }}
               />
             </Link>
           </div>
