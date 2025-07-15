@@ -23,7 +23,7 @@ export default function Header({ onCartClick }: HeaderProps) {
                 src={logoPath} 
                 alt="LUMISHADÉ logo" 
                 className="h-auto w-auto min-w-[200px] max-w-[240px] object-contain"
-                style={{ minHeight: '50px', maxHeight: '80px' }}
+                style={{ minHeight: '70px', maxHeight: '120px' }}
               />
             </Link>
           </div>
@@ -35,7 +35,7 @@ export default function Header({ onCartClick }: HeaderProps) {
                 src={logoPath} 
                 alt="LUMISHADÉ logo" 
                 className="h-auto w-auto min-w-[220px] max-w-[280px] object-contain"
-                style={{ minHeight: '55px', maxHeight: '85px' }}
+                style={{ minHeight: '70px', maxHeight: '120px' }}
               />
             </Link>
           </div>
